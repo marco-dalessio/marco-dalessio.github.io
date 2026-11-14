@@ -1,428 +1,1176 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>E-Learning Portfolio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Work Portfolio" />
-	<meta name="keywords" content="Work Portfolio" />
-	<meta name="author" content="Marco D'Alessio" />
-	<meta name="robots" content="noindex">		
+<!DOCTYPE html>
+<html lang="en-GB">
+<!--
+  ======================================================================
+  CONTENT SCHEMA — how to edit this page
+  ======================================================================
+  Copy lives in self-contained blocks. Edit text inside a block; you
+  should never need to touch the <style> section.
 
-	<!-- 
-	//////////////////////////////////////////////////////
+  PLACEHOLDERS: every piece of placeholder copy carries the attribute
+  data-ph (search for it). The page shows them normally. To see which
+  text is still placeholder, add class="draft" to <html>: placeholders
+  get a thin dotted underline. Delete data-ph once copy is final.
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+  FEATURED CASE STUDY (tier: featured) — copy this whole <details> block
+  ----------------------------------------------------------------------
+  <details class="case" id="case-SHORT-ID" data-tier="featured">
+    <summary>
+      <span class="case-num">07</span>
+      <h3 class="case-title">TITLE — outcome-led, max ~12 words</h3>
+      <span class="case-context">CONTEXT — one jargon-free sentence</span>
+      <span class="case-result">HEADLINE RESULT — one line, use <b> for the number</span>
+      <span class="case-toggle">Read case study</span>
+      <span class="case-meta">
+        <span class="status">Delivered | Ongoing | Pilot | In development</span>
+        <span>ORG</span>
+        <span class="num">PERIOD e.g. 2025–2026</span>
+        <span class="tags">TAG / TAG / TAG</span>          (max 3)
+      </span>
+    </summary>
+    <div class="case-body">
+      <p class="label">My role</p>
+      <p>MY_ROLE — one sentence</p>
+      <p class="label">What I did</p>
+      <p>WHAT_I_DID — 2–4 short paragraphs (or a <ul>)</p>
+      <p class="label">Results</p>
+      <ul class="results">
+        <li><span>RESULT</span><span class="evidence">EVIDENCE NOTE</span></li>   (1–3 items)
+      </ul>
+      OPTIONAL quote:
+      <blockquote class="quote"><p>“QUOTE”</p></blockquote>   (no attribution line, by choice)
+      OPTIONAL media (pre-2022 work and public videos ONLY — never McKinsey):
+      <figure class="media"><img src="images/FILE.jpg" alt="Describe what the image shows" loading="lazy" width="1200" height="675"><figcaption>CAPTION</figcaption></figure>
+      OPTIONAL diagram (any tier): <figure class="diagram"> inline <svg> … </figure>
+    </div>
+  </details>
 
-	//////////////////////////////////////////////////////
-	 -->
+  THEME GROUP — featured cases are grouped into four themes. Each theme is
+  a <div class="theme" id="theme-..."> holding: label "Theme N", an
+  <h3 class="theme-title">, a <p class="theme-intro">, a <div class="index">
+  of cases (case titles are <h4>), a <div class="quote-set"> and an
+  "Also in this theme" <ul class="further">.
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  ROTATING QUOTES — put 1+ <blockquote class="quote"> in a .quote-set.
+  Add the hidden attribute to all but the first; on load the script shows
+  one at random. Without JavaScript the first one shows.
 
-	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-	<!-- Portfolio Enhancements -->
-	<link rel="stylesheet" href="css/enhancements.css">
+  FURTHER WORK (tier: further) — one <li> in a theme's "Also in this theme" list
+    <li><span class="fw-title">TITLE</span><span class="fw-meta">PERIOD</span><span class="status">STATUS</span></li>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+  EARLIER CAREER (tier: earlier) — one <article class="era"> per employer.
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-		<div id="fh5co-aside" style="background-image: url(images/image_1.jpg)">
-			<div class="overlay"></div>
-			<nav role="navigation">
-				<ul>
-					<li><a href="index.html"><i class="icon-home"></i></a></li>
-				</ul>
-			</nav>
-			<div class="featured">
-				<!--<span>Bio</span>-->
-				<h2>Dr. Marco D&#39;Alessio, L&amp;D Manager | AI &amp; Learning Innovation</h2>
-				<!--<a href="mailto:dalessio.m@icloud.com">e-mail: dalessio.m@icloud.com</a>-->
-			</div>
-		</div>
-		<div id="fh5co-main-content">
-			<div class="fh5co-post">
-
-				<!-- ===== INTRO PANEL ===== -->
-				<div class="portfolio-intro">
-					<p class="portfolio-summary">17 years building learning at global scale — combining AI-driven design, doctoral research in learning analytics, and deep expertise in simulation and digital learning. Currently at McKinsey &amp; Company, recognised as a leading AI innovator within the Firm's L&amp;D function.</p>
-					<div class="skill-chips">
-						<span class="skill-chip">AI &amp; Learning Innovation</span>
-						<span class="skill-chip">Learning Analytics · Ed.D.</span>
-						<span class="skill-chip">Simulation Design</span>
-						<span class="skill-chip">Global Scale · 6,000+ learners</span>
-					</div>
-				</div>
-
-				<!-- ===== JD MATCHER ===== -->
-				<div class="jd-matcher" id="jd-matcher">
-					<div class="jd-matcher-toggle">
-						<div class="jd-toggle-icon">&#9881;</div>
-						<span class="jd-toggle-label">Match my experience to your role <span class="jd-toggle-sub">— paste a job description to highlight the most relevant work</span></span>
-						<span class="jd-toggle-arrow">&#9660;</span>
-					</div>
-					<div class="jd-matcher-body">
-						<textarea class="jd-textarea" placeholder="Paste a job description here and click 'Find Best Matches' — I'll score and highlight the most relevant portfolio entries for your role."></textarea>
-						<div class="jd-matcher-actions">
-							<button class="jd-match-btn">Find Best Matches</button>
-							<button class="jd-reset-btn">Reset</button>
-							<span class="jd-hint"></span>
-						</div>
-					</div>
-				</div>
-
-				<!-- ===== FILTER BAR ===== -->
-				<div class="filter-bar">
-					<span class="filter-label">Filter:</span>
-					<button class="filter-btn active" data-filter="all">All Work</button>
-					<button class="filter-btn" data-filter="ai">AI &amp; Innovation</button>
-					<button class="filter-btn" data-filter="simulation">Simulation &amp; Games</button>
-					<button class="filter-btn" data-filter="analytics">Analytics &amp; Data</button>
-					<button class="filter-btn" data-filter="strategy">Strategy &amp; Design</button>
-					<button class="filter-btn" data-filter="facilitation">Facilitation &amp; Leadership</button>
-				</div>
-
-				<!-- ===== SECTION: McKINSEY ===== -->
-				<div class="section-header" data-employer="mckinsey">
-					<div class="section-header-inner">
-						<span class="section-employer">McKinsey &amp; Company</span>
-						<span class="section-period">2022 — Present</span>
-						<span class="section-line"></span>
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 1: Innovation Olympics — no screenshot needed -->
-				<div class="fh5co-entry padding" id="McKinsey_1" data-tags="ai,analytics" data-keywords="artificial intelligence,technology,assessment,feedback,research,design,pilot,iteration,data,tools,blended learning,capability building,digital learning,curriculum,learning strategy,evaluation,data-driven,innovation">
-					<img src="images/McKinsey-Logo-1536x966.png" alt="Innovation Olympics Semi-Finalist">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2025)</span>
-						<h2>Innovation Olympics Semi-Finalist — AI Performance Support Agent</h2>
-						<p>Designed and built an AI agent to deliver performance support at scale across McKinsey — reaching the semi-finals of the Firm's internal Innovation Olympics competition, which surfaces high-impact innovations from thousands of colleagues globally. As the primary author of the agent's AI instructions, I designed a data-driven, methodologically rigorous evaluation framework — validated by the People &amp; Analytics (PAM) team — to assess the agent's reliability and accuracy. The project required navigating a high-ambiguity research environment: one collaborator noted, "Marco challenged us when we considered quitting the experiment early. We didn't think the agent could work, but he coached us on new and challenging ideas and helped me learn as much as I could."</p>
-						<p>This work runs in parallel with a proof-of-concept for an AI-based skills learning platform that enables deliberate practice through informal learning — tracking skill mastery via a Learner Record Store, integrating with McKinsey's broader learning ecosystem via APIs, and providing personalized feedback based on rubrics and user-generated data. The platform directly supports the Firm's Future of Learning strategy.</p>
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 2: AI Chatbot + Voice Roleplay — SCREENSHOT PLACEHOLDER -->
-				<!-- TODO: Replace images/project-2.jpg with your AI chatbot / roleplay screenshot -->
-				<div class="fh5co-entry padding" id="McKinsey_2" data-tags="ai,simulation" data-keywords="artificial intelligence,technology,simulation,assessment,feedback,design,iteration,tools,roleplay,coaching,instructional design,learning design,digital learning,blended learning,curriculum,personalized learning,learning experience,innovation">
-					<img src="images/McKinsey-Logo-1536x966.png" alt="AI Chatbot and Roleplay Simulation — screenshot to be added">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2024–2025)</span>
-						<h2>AI-Powered Learning Agents — Value Proposition Chatbot &amp; Roleplay Simulations</h2>
-						<p>Designed and built two AI-powered performance support tools for McKinsey professionals. The <strong>CCN Value Proposition Agent</strong> is a developmental chatbot that guides colleagues through the challenging process of articulating and refining their professional value proposition in the age of AI. After gathering requirements from CCN Directors and mapping the agent's user flow, I iterated on the design to balance open-ended development opportunities with structured guidance — a sensitivity inherent in helping professionals confront how AI is reshaping their roles. The agent is currently in champion testing globally.</p>
-						<p>Separately, I designed <strong>AI-powered voice-based roleplay simulations</strong> to give Partners a safe, realistic environment to practise critical client-facing skills — embedding deliberate practice directly into the flow of work using conversational AI. Both solutions leverage prompt engineering, agent training, and iterative evaluation to deliver learning that adapts to the learner.</p>
-						<!-- SCREENSHOT PLACEHOLDER: replace src above with your screenshot once available -->
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 3: EPR Feedback Simulation — SCREENSHOT PLACEHOLDER -->
-				<!-- TODO: Replace images/project-3.jpg with your EPR simulation screenshot -->
-				<div class="fh5co-entry padding" id="McKinsey_3" data-tags="simulation,analytics" data-keywords="simulation,scenario-based learning,assessment,feedback,design,research,pilot,iteration,data,tools,instructional design,learning design,blended learning,curriculum,competency,data-driven,large scale">
-					<img src="images/McKinsey-Logo-1536x966.png" alt="EPR Feedback Simulation — screenshot to be added">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2024–2025)</span>
-						<h2>EPR-Based Feedback Simulation — Executive Directors &amp; Team Leaders</h2>
-						<p>Designed and developed an assessment-level simulation using Attensi to help Executive Directors and team leaders globally navigate the complexities and emotional weight of giving developmental feedback. Unlike instructional simulations designed to teach, this project was built to <em>evaluate</em> competence — a design challenge requiring extended learning needs analysis, structured SME collaboration across global teams, and meticulous interaction storyboarding. A senior stakeholder noted: "Marco meticulously storyboarded every interaction with detailed flow charts that allowed our SME to see the nuances of the simulation and make informed suggestions during the process."</p>
-						<p>I applied learning analytics rigorously throughout piloting — using simulation data to calibrate the difficulty of each scenario and validate the experience iteratively before Firm-wide rollout to 1,000+ users. To push the boundaries of the Attensi platform, I developed custom interaction designs that one reviewer described as creating "an experience that immersed learners and allowed application-level assessment — something not previously attempted asynchronously."</p>
-						<!-- SCREENSHOT PLACEHOLDER: replace src above with your screenshot once available -->
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 4: AI & Data Literacy Upskilling — description only -->
-				<div class="fh5co-entry padding" id="McKinsey_4" data-tags="ai,analytics,strategy" data-keywords="artificial intelligence,technology,assessment,feedback,research,design,data,tools,capability building,upskilling,digital learning,learning strategy,blended learning,curriculum,facilitation,instructional design,data-driven,innovation">
-					<img src="images/McKinsey-Logo-1536x966.png" alt="AI and Data Literacy Upskilling Initiative">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2024–2025)</span>
-						<h2>AI &amp; Data Literacy Upskilling — L&amp;D Design Team</h2>
-						<p>Following the completion of an Ed.D. in Learning Analytics, I designed and led a comprehensive upskilling initiative to build data fluency and AI competence across McKinsey's Learning Design team. Drawing on original dissertation research, interviews with the People &amp; Analytics (PAM) team, and benchmarking of emerging practices in AI-augmented learning, I created a skills roadmap covering data-driven learning design, impact measurement, and AI integration in L&amp;D workflows.</p>
-						<p>Delivery formats included: co-facilitating bi-weekly AI Office Hours; leading sessions on Learning Needs Analysis and Performance Objectives; facilitating cross-functional D2 Impact Measurement calls with PAM guests; co-creating an "AI Lightbulb Moments" knowledge base capturing team discoveries; and presenting "data collection beyond the LMS" to the wider Impact Measurement Community of Practice. Over nine months, team GenAI adoption increased from 60% to 95% weekly usage — a direct outcome of consistent, practitioner-led capability building embedded in everyday work.</p>
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 5: Client Leadership Microsite — SCREENSHOT PLACEHOLDER -->
-				<!-- TODO: Replace images/project-5.jpg with your microsite screenshot -->
-				<div class="fh5co-entry padding" id="McKinsey_5" data-tags="strategy" data-keywords="digital learning,leadership development,stakeholder management,project management,blended learning,curriculum,learning experience,content development,learning design,instructional design,learning strategy,program management,associate development,personalized learning,microlearning">
-					<img src="images/McKinsey-Logo-1536x966.png" alt="Client Leadership Microsite — screenshot to be added">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2023–2024)</span>
-						<h2>Client Leadership Learning Microsite — Associate Partners</h2>
-						<p>Rescued and relaunched a stalled content development project by introducing a structured, Miro-based design environment that re-aligned stakeholders and restored forward momentum. The Client Leadership microsite — hosted on McKinsey's Spaces platform with Brightcove video streaming — provides Associate Partners globally with curated resources to develop the client leadership capabilities required at their level. One reviewer described the turnaround as "quite a turning point, as there was forward momentum": the Miro environment gave stakeholders a clear view of goals, open actions, and a structured review process, replacing ambiguity with clarity.</p>
-						<p>I led content development, back-end platform customisation with the T&amp;D team, and the full stakeholder review cycle. Pilot analytics showed dozens of Associate Partners accessing the microsite organically ahead of the planned global rollout — validating both the design quality and the demand for the content.</p>
-						<!-- SCREENSHOT PLACEHOLDER: replace src above with your screenshot once available -->
-					</div>
-				</div>
-
-				<!-- McKINSEY ENTRY 6: Lead Forward — description only -->
-				<div class="fh5co-entry padding" id="McKinsey_6" data-tags="facilitation" data-keywords="facilitation,leadership development,program management,global,large scale,training delivery,blended learning,communication,stakeholder,curriculum,instructional design,learning strategy,virtual training,capability building,engagement">
-					<img src="images/mck_forward_page_org-thumb_1098x618.jpg" alt="Lead Forward Global Faculty">
-					<div>
-						<span class="fh5co-post-date">McKinsey &amp; Company (2024–2025)</span>
-						<h2>Lead Forward — Global Faculty, 6,000+ Participants</h2>
-						<p>Served as Lead Faculty for four sessions of McKinsey's "Lead Forward" global webinar program, reaching over 6,000 colleagues across the Firm. Drawing on personal experience, facilitation research, and learning science, I designed and delivered sessions on topics including "Advancing Facilitation in Remote Environments" and "Your Brain on Learning" — all of which received high satisfaction and engagement ratings. The scale of Lead Forward required adapting facilitation approaches for very large, asynchronous-leaning audiences while maintaining genuine interaction and personal resonance. One unexpected one-on-one breakout session led the participant to send a personal thank-you on LinkedIn — a reminder that impact at scale can still be deeply individual.</p>
-					</div>
-				</div>
-
-				<!-- ===== SECTION: JOHNSON CONTROLS ===== -->
-				<div class="section-header" data-employer="jci">
-					<div class="section-header-inner">
-						<span class="section-employer">Johnson Controls</span>
-						<span class="section-period">2019 — 2022</span>
-						<span class="section-line"></span>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="strategy" data-keywords="blended learning,behavior change,change management,instructional design,learning design,multilingual,global,digital learning,curriculum,training program,stakeholder,e-learning,facilitation">
-					<img src="images/project-1.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Johnson Controls (2019-2022)</span>
-						<h2>Organizational Effectiveness – Health Behaviours</h2>
-						<p>As part of a “living health” campaign targeted to specific technical roles, I’ve written scripts/storyboards for 12 videos that are aimed at sparking discussions among team members. The discussions are meant to be facilitated by the supervisor of the team. Therefore, in addition to the videos, I’ve worked on specific facilitator guides for each topic. In this video example, I’ve decided to highlight the different behaviors between the two technicians using a split screen. In addition to writing the scripts and the storyboards for this video campaign, I have been managing the translation and localization process in 14 different languages.</p>
-						<div class="video-container">
-							<iframe src="https://www.youtube.com/embed/OD_o961oTJM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="facilitation,strategy" data-keywords="facilitation,capability building,instructional design,blended learning,virtual training,training delivery,learning design,e-learning,curriculum,stakeholder,program management,skills development">
-					<img src="images/project-2.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Johnson Controls (2019-2022)</span>
-						<h2><a href="https://learning-design-portfolio.s3.eu-central-1.amazonaws.com/trainer_program/story.html" target="_blank">Train the Trainer Program – Facilitation Skills</a></h2>
-						<p>Just before Covid-19 hit, I had started working on a Train the trainer program designed to provide foundational knowledge for employees who are asked to conduct both virtual and classroom training without proper education as trainer. Click on the heading to review the first module (intro to the program + facilitation skills).</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="strategy" data-keywords="digital learning,multilingual,global,product training,technical training,e-learning,instructional design,learning design,curriculum,blended learning,training program">
-					<img src="images/project-7.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Johnson Controls (2019-2022)</span>
-						<h2>New Software Release Walkthrough – Workflow</h2>
-						<p>Johnson Controls releases software updates regularly. Learning materials are created to present new and/or updated technical workflows that might be impacted by the newer release. This video series is created with a multi-lingual deployment in mind. Although the voice over will stay in English, screenshots and subtitles are localized in about 10 languages. These videos are public to watch as they're released to customers.</p>
-						<div class="video-container">
-							<iframe allowfullscreen allow="microphone; camera" frameborder="0" src="https://jcpublic.kzoplatform.com:443/player/medium/1803030511396852848"></iframe>
-						</div>
-					</div>
-				</div>
-
-				<!-- ===== SECTION: SELECTED WORK ===== -->
-				<div class="section-header" data-employer="misc">
-					<div class="section-header-inner">
-						<span class="section-employer">Selected Work</span>
-						<span class="section-period">2008 — 2019</span>
-						<span class="section-line"></span>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="analytics" data-keywords="learning analytics,data-driven,measurement,impact,research,instructional design,digital learning,curriculum,higher education,evaluation,innovation,personalized learning">
-					<img src="images/project-6.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Miscellaneous work (2019)</span>
-						<h2>Video Animation on Learning Analytics</h2>
-						<p>As part of coursework assignment for my doctoral studies, I had to create a video animation on a topic of choice. My dissertation research is about Learning Analytics for Learning Design, and I've decided to introduce the topic creating an animation using exclusively PowerPoint. The voice over has been generated using Amazon Polly. It is recommended to jump to 1:40 to see more interesting animations, as the content had to be structured in a very 'academic' structure due to the nature of the assignment.</p>
-						<div class="video-container">
-							<iframe src="https://www.youtube.com/embed/Xsh7ZHxJg20" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-					</div>
-				</div>
-				
-				<div class="fh5co-entry padding" data-tags="strategy" data-keywords="microlearning,mobile learning,instructional design,leadership development,management training,blended learning,learning design,curriculum,digital learning,adaptive learning,personalized learning,learning experience,learning strategy">
-					<img src="images/project-3.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Laureate International Universities (2016-2018)</span>
-						<h2><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/microlearning/Microlearning-Influencing.pptx" target="_blank">Manager training on Influencing</a></h2>
-						<p>As part of a managerial internal training effort, I have been asked to mockup and present a potential micro-learning initiative on the topic “Influencing”. The presentation has been very well received (along with the prototype), but the project did not progress due to organizational changes. I created a <a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/microlearning/Microlearning+Prototype+-+Politics+at+work.png" target="_blank">mockup</a> of the mobile experience for this microlearning content using Adobe XD.</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="strategy" data-keywords="e-learning,instructional design,digital learning,online learning,course development,curriculum,blended learning,higher education,multimedia,learning design,learning experience">
-					<img src="images/project-4.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">Laureate International Universities (2016-2018)</span>
-						<h2>Learning Objects used in the online classrooms</h2>
-						<p>The following content items are part of larger portions of content, resources and assignments delivered to online students. These pieces are only one of several components of the overall learning experience I design for our online students, which entails identifying the resources, supporting the SME in writing the assignments in an engaging way and verifying that the instructions are accurate and clear.</p>
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/UKL1_CKIT_531_Week07_CYK/story_html5.html" target="_blank">Cyber Security</a></p>						
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/videoExamples/CKIT_530_videoExample.html" target="_blank">Video Lesson: Cybercrime and Smartphones</a></p>
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/KMBA_634_socialMedia/story_html5.html" target="_blank">The role of Social Media in Digital Marketing</a></p> 
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/KMBA_634_dataAnalytics/story_html5.html" target="_blank">Using Data Analytics in Digital Marketing</a></p> 
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding" data-tags="strategy" data-keywords="e-learning,instructional design,product training,sales training,course development,blended learning,learning management system,curriculum,digital learning,learning design,training program">
-					<img src="images/project-5.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">IDEXX (2014-2015)</span>
-						<h2><a href="single.html">e-Learning design and development</a></h2>
-						<p>The following links include standalone Learning Objects created for internal training. Mozilla Firefox is recommended to review the examples in this portfolio. </p>
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/702010-learning-model/story_html5.html" target="_blank">Train-the-trainer session on 70-20-10</a></p>						
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/SNAP_4Dx-interpretationGuide/story_html5.html" target="_blank">Product Training: SNAP 4DX</a></p>
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/beatingAbaxis/story_html5.html" target="_blank">Sales Training – Beating the competition</a></p> 
-						<p><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/catOne-intro/story_html5.html" target="_blank">Product Training: Catalyst One</a></p> 						
-					</div>
-				</div>
-
-<!--				
-				<div class="fh5co-entry padding">
-					<img src="images/project-6.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-7.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-8.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-1.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-2.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-3.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-4.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-5.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-6.jpg" alt="Icon for Work Project">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-7.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
-
-				<div class="fh5co-entry padding">
-					<img src="images/project-8.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-					<div>
-						<span class="fh5co-post-date">October 12, 2016</span>
-						<h2><a href="single.html">How to be an effective web developer</a></h2>
-						<p>How two simple exercises changed my life</p>
-					</div>
-				</div>
+  CONFIDENTIALITY: McKinsey work is described in words only. No
+  screenshots, mock-ups, recordings, internal URLs or recognisable
+  interfaces. Quotes are anonymous and carry no attribution line.
+  ======================================================================
 -->
-				<footer>
-					<div>
-					Mozilla Firefox is recommended to review the examples in this portfolio. Other browsers may not properly display some of this content.
-					</div>
-				</footer>
-			</div>
-		</div>
-	</div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Marco D’Alessio · Learning transformation, design and AI-enabled practice</title>
+<meta name="description" content="Learning Design Manager at McKinsey &amp; Company. I lead learning transformation, bring new designs to existing problems, and use AI and simulation for deliberate practice, with honest evidence of what worked.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
-	<!-- Portfolio Enhancements -->
-	<script src="js/enhancements.js"></script>
+<!-- FONTS: Google Fonts (a third-party request to Google). To avoid it, delete
+     these three lines; the page falls back to Iowan Old Style / Charter / Georgia
+     and Seravek / Gill Sans Nova / Calibri. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
-	</body>
+<style>
+/* ---------- Tokens ---------- */
+:root {
+  --paper:    #FFFFFF;
+  --ink:      #16202A;   /* near-black slate: body text, headings      */
+  --muted:    #505C66;   /* secondary text, 6.7:1 on white             */
+  --rule:     #DCE2E6;   /* hairlines                                  */
+  --accent:   #1E4E79;   /* fjord blue: links, quote rules, diagrams   */
+  --accent-2: #2E6B57;   /* pine: status labels only                   */
+  --tint:     #EDF2F6;   /* frost: video panels, draft highlights      */
+
+  --serif: "Newsreader", "Iowan Old Style", Charter, "Bitstream Charter", Georgia, serif;
+  --sans:  "Source Sans 3", Seravek, "Gill Sans Nova", Ubuntu, Calibri, "Carlito", sans-serif;
+
+  --measure: 36em;
+  --gutter: 1.5rem;
+  --gap-xl: clamp(4rem, 9vw, 7rem);
+  --gap-l:  clamp(2.5rem, 5vw, 3.75rem);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  font-variant-numeric: lining-nums;
+  text-rendering: optimizeLegibility;
+}
+img, svg, iframe { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.num { font-variant-numeric: tabular-nums lining-nums; }
+.label {
+  margin: 0 0 .5rem; font: 600 .72rem/1.2 var(--sans);
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.status {
+  font: 600 .7rem/1.4 var(--sans); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent-2);
+}
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 1rem; top: -3rem; background: var(--ink); color: #fff; padding: .5rem .8rem; z-index: 5; }
+.skip:focus { top: 1rem; }
+
+.draft [data-ph] { text-decoration: underline dotted var(--accent); text-decoration-thickness: 1px; text-underline-offset: .25em; }
+
+/* ---------- Layout ---------- */
+.wrap { max-width: 70rem; margin: 0 auto; padding: 0 1.25rem; }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+section { margin-top: var(--gap-xl); }
+.section-title {
+  margin: 0; padding-bottom: .7rem; border-bottom: 1px solid var(--ink);
+  font: italic 400 1.15rem/1.3 var(--serif); color: var(--muted);
+  display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+}
+.section-title .num { font: 400 .85rem/1 var(--sans); font-style: normal; }
+
+/* ---------- 1. Masthead ---------- */
+.masthead { padding-top: clamp(3rem, 8vw, 5.5rem); }
+.masthead .grid { align-items: end; padding-bottom: 1.25rem; border-bottom: 1px solid var(--ink); }
+.masthead h1 {
+  grid-column: 1 / 9; margin: 0;
+  font: 400 clamp(2.5rem, 6.5vw, 4.4rem)/1 var(--serif); letter-spacing: -.015em;
+}
+.masthead .role { grid-column: 1 / 9; margin: .7rem 0 0; font-size: 1.15rem; color: var(--muted); max-width: 34em; }
+.masthead .contact {
+  grid-column: 1 / 9; margin: 1.1rem 0 0; padding: 0; list-style: none; font-size: .95rem;
+  display: flex; flex-wrap: wrap; gap: .2rem 0;
+}
+.masthead .contact li + li::before { content: "·"; margin: 0 .55rem; color: var(--muted); }
+.masthead .places { grid-column: 1 / 9; margin: .35rem 0 0; font-size: .88rem; line-height: 1.45; color: var(--muted); max-width: 40em; }
+.places-map { grid-column: 9 / 13; grid-row: 1 / 5; align-self: end; margin: 0 0 -.25rem; }
+.places-map svg { width: 100%; height: auto; overflow: visible; }
+.places-map .m-grid line, .places-map .m-grid path, .places-map .m-grid polyline { stroke: var(--rule); stroke-width: .6; fill: none; }
+.places-map .m-brk path { stroke: var(--muted); stroke-width: .8; fill: none; }
+.places-map .m-lat text { font: 7px var(--sans); fill: var(--muted); }
+.places-map .m-lab text { font: 600 8.5px var(--sans); letter-spacing: .07em; fill: var(--ink); }
+.places-map .m-lab .m-note { font-size: 7.5px; font-weight: 400; letter-spacing: .02em; fill: var(--muted); }
+.places-map .m-acc { fill: var(--accent); }
+.places-map .m-pt { fill: var(--paper); stroke: var(--accent); stroke-width: 1.1; }
+.places-map .m-now { fill: var(--accent); }
+.places-map .m-ring { fill: none; stroke: var(--accent); stroke-width: .6; opacity: .5; }
+.portrait { display: none; }
+/* Photo is OFF by default. Add class="with-photo" to <body> to show images/portrait.jpg */
+.with-photo .portrait {
+  display: block; grid-column: 1 / 3; grid-row: 1 / 3; width: 100%; aspect-ratio: 4 / 5;
+  object-fit: cover; filter: grayscale(1); margin-bottom: .25rem;
+}
+.with-photo .masthead h1, .with-photo .masthead .role { grid-column: 3 / 10; }
+.with-photo .masthead .contact, .with-photo .masthead .places { grid-column: 3 / 10; }
+.with-photo .places-map { grid-column: 10 / 13; }
+
+/* ---------- 2. Positioning ---------- */
+.lede {
+  grid-column: 1 / 9; margin: var(--gap-l) 0 0;
+  font: 300 clamp(1.4rem, 2.5vw, 1.8rem)/1.4 var(--serif);
+}
+.glance {
+  grid-column: 1 / 13; margin: 3rem 0 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.glance li { padding: .95rem 1rem .95rem 0; }
+.glance li + li { border-left: 1px solid var(--rule); padding-left: 1rem; }
+.glance b { display: block; font: 500 1.4rem/1.2 var(--serif); font-variant-numeric: tabular-nums lining-nums; }
+.glance span { display: block; font-size: .88rem; line-height: 1.4; color: var(--muted); margin-top: .2rem; }
+
+.problems { grid-column: 4 / 13; margin: var(--gap-l) 0 0; }
+.problems ol { list-style: none; margin: 0; padding: 0; }
+.problems li {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--gutter);
+  padding: .9rem 0; border-top: 1px solid var(--rule);
+}
+.problems li:last-child { border-bottom: 1px solid var(--rule); }
+.problems q { font: italic 400 1.15rem/1.4 var(--serif); quotes: "“" "”"; }
+.problems p { margin: 0; font-size: .97rem; color: var(--muted); }
+
+/* ---------- 3. Featured case studies ---------- */
+.index { margin: 0; }
+.case { border-bottom: 1px solid var(--rule); }
+.case summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 3rem minmax(0, 1fr) 13rem; column-gap: var(--gutter);
+  padding: 1.5rem 0 1.4rem;
+}
+.case summary::-webkit-details-marker { display: none; }
+.case summary { align-content: start; }
+.case summary > * { grid-column: 2; }
+.case summary > .case-num { grid-column: 1; grid-row: 1 / span 4; }
+.case summary > .case-meta { grid-column: 3; grid-row: 1 / span 4; }
+.case-title { grid-row: 1; } .case-context { grid-row: 2; } .case-result { grid-row: 3; }
+.case-toggle { grid-row: 4; justify-self: start; }
+.case-num { font: 400 .95rem/2 var(--sans); font-variant-numeric: tabular-nums; color: var(--muted); }
+.case-title { margin: 0; font: 400 clamp(1.3rem, 2.3vw, 1.65rem)/1.25 var(--serif); }
+.case-context { display: block; margin-top: .4rem; color: var(--muted); max-width: var(--measure); }
+.case-result { display: block; margin-top: .55rem; font-size: .97rem; }
+.case-result b { font-weight: 600; font-variant-numeric: tabular-nums lining-nums; }
+.case-toggle {
+  display: inline-block; margin-top: .7rem; font-size: .85rem; color: var(--accent);
+  border-bottom: 1px solid currentColor; line-height: 1.3;
+}
+.case-toggle::after { content: " +"; }
+.case[open] .case-toggle { font-size: 0; border: 0; }
+.case[open] .case-toggle::after { content: "Close case study −"; font-size: .85rem; border-bottom: 1px solid currentColor; }
+.case-meta { display: flex; flex-direction: column; align-items: flex-end; text-align: right; font-size: .88rem; color: var(--muted); line-height: 1.6; }
+.case-meta .status { margin-bottom: .15rem; }
+.tags { font-size: .8rem; letter-spacing: .03em; margin-top: .2rem; }
+@media (hover: hover) {
+  .case summary:hover .case-title { color: var(--accent); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .case-title { transition: color .15s ease; }
+}
+
+.case-body {
+  display: grid; grid-template-columns: 3rem minmax(0, 2fr) minmax(0, 1fr); column-gap: var(--gutter);
+  padding: .25rem 0 3rem;
+}
+.case-body > * { grid-column: 2; }
+.case-body p { margin: 0 0 1rem; max-width: var(--measure); }
+.case-body .label { margin-top: 1.25rem; }
+.case-body .label:first-child { margin-top: 0; }
+.case-body ul:not(.results) { margin: 0 0 1rem; padding-left: 1.1rem; max-width: var(--measure); }
+.case-body ul:not(.results) li { margin-bottom: .35rem; }
+
+.results {
+  grid-column: 2 / 4; margin: 0 0 1.5rem; padding: 0; list-style: none;
+}
+.results li {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); column-gap: var(--gutter);
+  padding: .65rem 0; border-top: 1px solid var(--rule);
+}
+.results li > span:first-child { max-width: var(--measure); }
+.results b { font-variant-numeric: tabular-nums lining-nums; }
+.evidence {
+  font-size: .82rem; line-height: 1.45; color: var(--muted);
+  border-left: 1px solid var(--accent); padding-left: .75rem; align-self: start;
+}
+
+.quote { grid-column: 2 / 4; margin: 1rem 0 2rem; padding: .25rem 0 .25rem 1.4rem; border-left: 2px solid var(--accent); max-width: 40em; }
+.quote p { margin: 0 0 .6rem !important; font: italic 300 clamp(1.3rem, 2.2vw, 1.55rem)/1.35 var(--serif); max-width: none !important; }
+.quote footer { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+.diagram { margin: .5rem 0 1.75rem; max-width: 36rem; }
+.diagram svg { width: 100%; height: auto; overflow: visible; }
+.diagram text { font-family: var(--sans); }
+.diagram figcaption, .media figcaption { font-size: .8rem; color: var(--muted); margin-top: .5rem; }
+.media { margin: .5rem 0 1.75rem; }
+.media img { width: 100%; height: auto; border: 1px solid var(--rule); }
+
+/* ---------- 3b. Theme groups (added Nov 2026 for themed grouping) ---------- */
+.theme { margin-top: var(--gap-l); }
+.theme > .label { margin-bottom: .35rem; }
+.theme-title { margin: 0; font: 400 clamp(1.5rem, 2.6vw, 1.9rem)/1.2 var(--serif); }
+.theme-intro { margin: .6rem 0 .5rem; max-width: var(--measure); color: var(--muted); }
+.quote-set .quote { margin-top: 2rem; }
+.also-label { margin-top: 1.75rem; }
+.archive-groups li span { display: block; font-size: .82rem; color: var(--muted); margin-top: .1rem; }
+/* ---------- 4. Further work ---------- */
+.further { margin: 0; padding: 0; list-style: none; }
+.further li {
+  display: grid; grid-template-columns: 3rem minmax(0, 1fr) 7rem 8rem; column-gap: var(--gutter);
+  padding: .8rem 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+}
+.further li::before { content: ""; }
+.fw-title { grid-column: 2; }
+.fw-meta { font-size: .88rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.further .status { text-align: right; color: var(--muted); }
+
+/* ---------- 5. Earlier career ---------- */
+.era {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+  padding: 2.25rem 0; border-bottom: 1px solid var(--rule);
+}
+.era:last-child { border-bottom: 0; }
+.era-head { grid-column: 1 / 4; }
+.era-head h3 { margin: 0; font: 400 1.4rem/1.2 var(--serif); }
+.era-head p { margin: .3rem 0 0; font-size: .88rem; color: var(--muted); }
+.era-head .era-place { margin-top: .75rem; color: var(--accent); }
+.era-body { grid-column: 4 / 13; }
+.era-body > p { margin: 0 0 1rem; max-width: var(--measure); }
+.era .results { margin-bottom: 1.25rem; }
+.era .results li { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.clips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); margin-top: 1.5rem; }
+.clip h4 { margin: .6rem 0 .15rem; font: 500 1.05rem/1.3 var(--serif); }
+.clip p { margin: 0; font-size: .9rem; color: var(--muted); }
+
+/* Click-to-load video: nothing loads from YouTube/Kaltura until clicked */
+.video { position: relative; aspect-ratio: 16 / 9; background: var(--tint); border: 1px solid var(--rule); }
+.video button {
+  position: absolute; inset: 0; width: 100%; border: 0; background: transparent; cursor: pointer;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+  padding: 1rem; text-align: left; font: inherit; color: var(--ink);
+}
+.video button::before {
+  content: ""; width: 0; height: 0; margin-bottom: auto;
+  border-left: 1.1rem solid var(--accent); border-top: .7rem solid transparent; border-bottom: .7rem solid transparent;
+}
+.video .v-label { font: 600 .9rem/1.3 var(--sans); }
+.video .v-note { font-size: .78rem; color: var(--muted); }
+.video button:hover .v-label { color: var(--accent); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- 6. Archive ---------- */
+.archive { border-bottom: 1px solid var(--rule); }
+.archive summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 3rem minmax(0,1fr); column-gap: var(--gutter); padding: 1.25rem 0; }
+.archive summary::-webkit-details-marker { display: none; }
+.archive summary .a-title { font: 400 1.25rem/1.3 var(--serif); }
+.archive summary .a-sub { display: block; font-size: .92rem; color: var(--muted); margin-top: .25rem; }
+.archive summary .case-toggle { margin-top: .5rem; }
+.archive[open] .case-toggle { font-size: 0; border: 0; }
+.archive[open] .case-toggle::after { content: "Close archive −"; font-size: .85rem; border-bottom: 1px solid currentColor; }
+.archive-body { padding: 0 0 2rem calc(3rem + var(--gutter)); }
+.archive-note { font-size: .85rem; color: var(--muted); margin: 0 0 1.5rem; padding: .6rem .8rem; background: var(--tint); max-width: 36em; }
+.archive-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+.archive-groups h3 { margin: 0 0 .5rem; font: 600 .95rem/1.3 var(--sans); }
+.archive-groups h3 span { display: block; font-weight: 400; font-size: .82rem; color: var(--muted); }
+.archive-groups ul { margin: 0; padding: 0; list-style: none; font-size: .95rem; }
+.archive-groups li { padding: .35rem 0; border-top: 1px solid var(--rule); }
+.archive-groups a::after { content: " ↗"; font-size: .8em; }
+
+/* ---------- 7. Credentials ---------- */
+.creds { margin: 0; padding: 0; list-style: none; }
+.creds li {
+  display: grid; grid-template-columns: 3rem 5rem minmax(0, 1fr); column-gap: var(--gutter);
+  padding: .85rem 0; border-bottom: 1px solid var(--rule);
+}
+.creds .yr { grid-column: 2; font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.creds strong { font: 500 1.08rem/1.35 var(--serif); }
+.creds span.d { display: block; font-size: .92rem; color: var(--muted); }
+
+/* ---------- 8. Footer ---------- */
+.site-footer { margin-top: var(--gap-xl); padding: 1.5rem 0 3rem; border-top: 1px solid var(--ink); font-size: .9rem; color: var(--muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+/* ---------- Wide screens (e.g. 15" laptops and up) ----------
+   Same effect as browsing at ~112% zoom: copy one step larger and the
+   column wider, so the side margins narrow. The intro statement is
+   pinned close to its normal size so it doesn't balloon. */
+@media (min-width: 1200px) {
+  html { font-size: 112.5%; }                 /* 16px → 18px base */
+  .wrap { max-width: 72rem; }                 /* ~1300px column  */
+  .lede { font-size: 1.6rem; }                /* ≈ 29px, as before */
+  .masthead h1 { font-size: 4.2rem; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .case summary { grid-template-columns: 2.25rem minmax(0, 1fr); }
+  .case summary > .case-meta { grid-column: 2; grid-row: 4; }
+  .case-toggle { grid-row: 5; }
+  .case-meta { flex-direction: row; flex-wrap: wrap; gap: .1rem .9rem; align-items: baseline; text-align: left; margin-top: .9rem; }
+  .case-meta .status { margin: 0; }
+  .case-body { grid-template-columns: 2.25rem minmax(0, 1fr); }
+  .case-body > *, .results, .quote { grid-column: 2; }
+  .further li { grid-template-columns: 2.25rem minmax(0, 1fr) auto; }
+  .further .fw-meta { grid-column: 2; grid-row: 2; }
+  .further .status { grid-column: 3; grid-row: 1; }
+  .archive summary { grid-template-columns: 2.25rem minmax(0,1fr); }
+  .archive-body { padding-left: calc(2.25rem + var(--gutter)); }
+  .archive-groups { grid-template-columns: 1fr; }
+  .creds li { grid-template-columns: 2.25rem 4.5rem minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .grid > *, .with-photo .masthead .grid > * { grid-column: 1 / -1 !important; grid-row: auto !important; }
+  .places-map { display: none !important; }
+  .with-photo .portrait { width: 7rem; }
+  .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .glance li:nth-child(3) { border-left: 0; padding-left: 0; }
+  .glance li:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  .problems li { grid-template-columns: 1fr; gap: .3rem; }
+  .era { grid-template-columns: 1fr; }
+  .era-head, .era-body { grid-column: 1; }
+  .era-head { margin-bottom: 1rem; }
+  .clips { grid-template-columns: 1fr; }
+  .video:not(.is-loaded) { aspect-ratio: 12 / 5; }
+}
+@media (max-width: 480px) {
+  body { font-size: 1rem; }
+  .results li { grid-template-columns: 1fr; row-gap: .35rem; }
+  .creds li { grid-template-columns: 4rem minmax(0, 1fr); }
+  .creds li > :first-child { display: none; }
+  .creds .yr { grid-column: 1; }
+  .case-num { font-size: .85rem; }
+  .archive-body { padding-left: 0; }
+}
+
+/* ---------- Print: aims for a clean 2-page A4 summary ---------- */
+@media print {
+  @page { size: A4; margin: 14mm 15mm; }
+  html { font-size: 9.2pt; }
+  body { color: #000; }
+  .draft [data-ph] { text-decoration: none; }
+  .skip, .case-toggle, .case-body, .video, .clips, .archive, .problems, .diagram, .quote, .portrait { display: none !important; }
+  section { margin-top: 1.4rem; break-inside: auto; }
+  .masthead { padding-top: 0; }
+  .masthead h1 { font-size: 2.4rem; }
+  .places-map { display: none; }
+  .lede { margin-top: 1rem; font-size: 1.15rem; }
+  .glance { margin-top: 1rem; }
+  .case summary { padding: .55rem 0; grid-template-columns: 2rem minmax(0,1fr) 11rem; }
+  .case summary > .case-meta { grid-column: 3; grid-row: 1 / span 4; flex-direction: column; align-items: flex-end; text-align: right; margin: 0; }
+  .case-title { font-size: 1.15rem; }
+  .case-context, .case-result { margin-top: .15rem; }
+  .case, .further li, .era, .creds li { break-inside: avoid; }
+  .era { padding: .8rem 0; }
+  .further li, .creds li { padding: .35rem 0; }
+  a { color: #000; text-decoration: none; }
+  .contact a[href^="mailto:"]::after, .contact a[href^="https:"]::after { content: " · " attr(data-print); }
+  .site-footer { margin-top: 1rem; padding: .5rem 0 0; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================================================= 1. MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="grid">
+      <img class="portrait" src="images/portrait.jpg" alt="Marco D’Alessio" width="400" height="500" loading="lazy">
+      <h1>Marco D’Alessio</h1>
+      <p class="role">I design learning for large organisations, increasingly with AI, and look for evidence that it works.</p>
+      <ul class="contact">
+        <li>Barcelona, Spain</li>
+        <li><a href="https://www.linkedin.com/in/marcodalessio" data-print="linkedin.com/in/marcodalessio">LinkedIn</a></li>
+        <li><a href="mailto:dalessio.m@icloud.com" data-print="dalessio.m@icloud.com">Email</a></li>
+      </ul>
+      <p class="places">Italian citizen. Lived in multiple countries, comfortable working in international environments.</p>
+      <figure class="places-map" aria-hidden="true">
+      <!-- Orthographic globe section; Atlantic squeezed so both coasts fit. Dots: Baltimore, Amsterdam, Berlin, Rome; filled = Barcelona -->
+      <svg viewBox="-26 -8 281.2 170.6" focusable="false">
+        <g class="m-grid">
+        <polyline points="1.5,124.7 5.2,126.2 9.0,127.7 12.7,129.1 16.5,130.5 20.4,131.9 24.2,133.2 28.1,134.5 32.1,135.7 36.0,136.8 40.0,137.9 44.0,139.0 48.1,140.0 52.2,141.0 56.2,141.9 60.4,142.7 64.5,143.6 65.5,143.7 66.6,143.9 67.6,144.1 68.6,144.3 69.7,144.5 70.7,144.7 71.8,144.8 72.8,145.0 73.9,145.2 74.9,145.4 76.0,145.5 77.0,145.7 78.1,145.8 79.1,146.0 80.2,146.1 81.2,146.3 82.3,146.4 83.3,146.6 84.4,146.7 85.4,146.8 86.5,147.0 87.5,147.1 88.6,147.2 89.7,147.3 90.7,147.5 91.8,147.6 92.8,147.7 93.9,147.8 95.0,147.9 96.0,148.0 97.1,148.1 98.1,148.2 99.2,148.3 100.3,148.4 101.3,148.4 102.4,148.5 103.5,148.6 104.5,148.7 105.6,148.7 106.7,148.8 107.7,148.9 108.8,148.9 109.9,149.0 111.0,149.1 112.0,149.1 113.1,149.2 114.2,149.2 115.2,149.2 116.3,149.3 117.4,149.3 118.4,149.3 119.5,149.4 120.6,149.4 121.7,149.4 122.7,149.4 123.8,149.4 128.1,149.5 132.4,149.4 136.7,149.4 141.0,149.2 145.2,149.1 149.5,148.8 153.8,148.5 158.0,148.2 162.3,147.8 166.5,147.3 170.8,146.8 175.0,146.3 179.2,145.7 183.4,145.0 187.5,144.3 191.7,143.6 195.8,142.7 199.9,141.9 204.0,141.0 208.1,140.0 212.1,139.0 216.2,137.9 220.2,136.8 224.1,135.7 228.0,134.5 232.0,133.2 235.8,131.9 239.7,130.5 243.5,129.1 247.2,127.7"/>
+        <polyline points="9.7,100.3 13.2,101.8 16.7,103.2 20.2,104.5 23.8,105.8 27.4,107.1 31.0,108.3 34.6,109.5 38.3,110.6 42.0,111.7 45.7,112.7 49.5,113.7 53.3,114.7 57.1,115.6 60.9,116.4 64.8,117.2 68.6,118.0 69.6,118.2 70.6,118.4 71.5,118.5 72.5,118.7 73.5,118.9 74.4,119.0 75.4,119.2 76.4,119.4 77.4,119.5 78.4,119.7 79.3,119.8 80.3,120.0 81.3,120.1 82.3,120.3 83.3,120.4 84.2,120.5 85.2,120.7 86.2,120.8 87.2,120.9 88.2,121.1 89.2,121.2 90.2,121.3 91.2,121.4 92.1,121.5 93.1,121.6 94.1,121.7 95.1,121.8 96.1,121.9 97.1,122.0 98.1,122.1 99.1,122.2 100.1,122.3 101.1,122.4 102.1,122.5 103.1,122.6 104.1,122.6 105.1,122.7 106.1,122.8 107.1,122.8 108.1,122.9 109.1,123.0 110.1,123.0 111.1,123.1 112.1,123.1 113.1,123.2 114.1,123.2 115.1,123.3 116.1,123.3 117.1,123.3 118.1,123.4 119.1,123.4 120.1,123.4 121.1,123.5 122.1,123.5 123.1,123.5 124.1,123.5 128.1,123.5 132.1,123.5 136.1,123.4 140.1,123.3 144.1,123.1 148.1,122.9 152.1,122.6 156.1,122.3 160.1,121.9 164.0,121.5 168.0,121.1 171.9,120.5 175.9,120.0 179.8,119.4 183.7,118.7 187.6,118.0 191.4,117.2 195.3,116.4 199.1,115.6 202.9,114.7 206.7,113.7 210.5,112.7 214.2,111.7 217.9,110.6 221.6,109.5 225.2,108.3 228.8,107.1 232.4,105.8 236.0,104.5 239.5,103.2"/>
+        <polyline points="18.8,76.0 22.0,77.3 25.3,78.6 28.5,79.8 31.8,81.0 35.1,82.2 38.4,83.3 41.8,84.4 45.2,85.5 48.6,86.5 52.1,87.4 55.5,88.3 59.0,89.2 62.5,90.0 66.1,90.8 69.6,91.6 73.2,92.3 74.1,92.4 75.0,92.6 75.9,92.8 76.8,92.9 77.7,93.1 78.6,93.2 79.5,93.4 80.4,93.5 81.3,93.7 82.2,93.8 83.1,94.0 84.0,94.1 84.9,94.2 85.8,94.4 86.7,94.5 87.6,94.6 88.5,94.7 89.4,94.9 90.3,95.0 91.3,95.1 92.2,95.2 93.1,95.3 94.0,95.4 94.9,95.5 95.8,95.6 96.7,95.7 97.7,95.8 98.6,95.9 99.5,96.0 100.4,96.1 101.3,96.2 102.2,96.3 103.2,96.3 104.1,96.4 105.0,96.5 105.9,96.6 106.8,96.6 107.8,96.7 108.7,96.8 109.6,96.8 110.5,96.9 111.5,96.9 112.4,97.0 113.3,97.0 114.2,97.1 115.1,97.1 116.1,97.1 117.0,97.2 117.9,97.2 118.8,97.2 119.8,97.3 120.7,97.3 121.6,97.3 122.5,97.3 123.5,97.3 124.4,97.4 128.1,97.4 131.8,97.4 135.5,97.3 139.2,97.2 142.9,97.0 146.6,96.8 150.3,96.6 153.9,96.3 157.6,95.9 161.3,95.5 164.9,95.1 168.6,94.6 172.2,94.1 175.8,93.5 179.4,92.9 183.0,92.3 186.6,91.6 190.1,90.8 193.6,90.0 197.2,89.2 200.6,88.3 204.1,87.4 207.6,86.5 211.0,85.5 214.4,84.4 217.7,83.3 221.1,82.2 224.4,81.0 227.7,79.8 230.9,78.6"/>
+        <polyline points="28.8,51.8 31.7,53.0 34.6,54.1 37.6,55.3 40.5,56.4 43.6,57.4 46.6,58.5 49.7,59.4 52.7,60.4 55.9,61.3 59.0,62.2 62.1,63.0 65.3,63.8 68.5,64.6 71.7,65.3 74.9,66.0 78.2,66.6 79.0,66.7 79.8,66.9 80.6,67.0 81.4,67.2 82.3,67.3 83.1,67.5 83.9,67.6 84.7,67.7 85.5,67.9 86.4,68.0 87.2,68.1 88.0,68.3 88.8,68.4 89.7,68.5 90.5,68.6 91.3,68.7 92.1,68.8 93.0,69.0 93.8,69.1 94.6,69.2 95.4,69.3 96.3,69.4 97.1,69.5 97.9,69.6 98.8,69.6 99.6,69.7 100.4,69.8 101.3,69.9 102.1,70.0 102.9,70.1 103.8,70.1 104.6,70.2 105.4,70.3 106.3,70.4 107.1,70.4 107.9,70.5 108.8,70.5 109.6,70.6 110.5,70.7 111.3,70.7 112.1,70.8 113.0,70.8 113.8,70.9 114.6,70.9 115.5,70.9 116.3,71.0 117.2,71.0 118.0,71.0 118.8,71.1 119.7,71.1 120.5,71.1 121.4,71.2 122.2,71.2 123.0,71.2 123.9,71.2 124.7,71.2 128.1,71.2 131.5,71.2 134.8,71.2 138.2,71.0 141.5,70.9 144.9,70.7 148.3,70.5 151.6,70.2 154.9,69.9 158.3,69.6 161.6,69.2 164.9,68.7 168.2,68.3 171.5,67.7 174.7,67.2 178.0,66.6 181.2,66.0 184.5,65.3 187.7,64.6 190.9,63.8 194.0,63.0 197.2,62.2 200.3,61.3 203.4,60.4 206.5,59.4 209.6,58.5 212.6,57.4 215.6,56.4 218.6,55.3 221.6,54.1"/>
+        <polyline points="39.5,27.9 42.1,29.0 44.7,30.0 47.3,31.0 50.0,32.0 52.7,33.0 55.4,33.9 58.1,34.8 60.9,35.6 63.6,36.4 66.4,37.2 69.2,37.9 72.1,38.7 74.9,39.3 77.8,40.0 80.7,40.6 83.6,41.1 84.3,41.3 85.0,41.4 85.7,41.5 86.5,41.7 87.2,41.8 87.9,41.9 88.7,42.0 89.4,42.2 90.1,42.3 90.9,42.4 91.6,42.5 92.3,42.6 93.1,42.7 93.8,42.8 94.5,42.9 95.3,43.1 96.0,43.2 96.7,43.2 97.5,43.3 98.2,43.4 99.0,43.5 99.7,43.6 100.4,43.7 101.2,43.8 101.9,43.9 102.7,43.9 103.4,44.0 104.1,44.1 104.9,44.2 105.6,44.2 106.4,44.3 107.1,44.4 107.9,44.4 108.6,44.5 109.4,44.6 110.1,44.6 110.9,44.7 111.6,44.7 112.4,44.8 113.1,44.8 113.8,44.9 114.6,44.9 115.3,45.0 116.1,45.0 116.8,45.0 117.6,45.1 118.3,45.1 119.1,45.1 119.8,45.1 120.6,45.2 121.3,45.2 122.1,45.2 122.8,45.2 123.6,45.2 124.3,45.3 125.1,45.3 128.1,45.3 131.1,45.3 134.1,45.2 137.1,45.1 140.1,45.0 143.1,44.8 146.1,44.6 149.1,44.4 152.0,44.1 155.0,43.8 158.0,43.4 160.9,43.1 163.9,42.6 166.8,42.2 169.7,41.7 172.6,41.1 175.5,40.6 178.4,40.0 181.3,39.3 184.1,38.7 186.9,37.9 189.8,37.2 192.6,36.4 195.3,35.6 198.1,34.8 200.8,33.9 203.5,33.0 206.2,32.0 208.9,31.0 211.5,30.0"/>
+        <polyline points="50.8,4.6 53.1,5.5 55.4,6.4 57.7,7.3 60.0,8.2 62.3,9.0 64.7,9.8 67.1,10.6 69.5,11.3 71.9,12.0 74.3,12.7 76.8,13.3 79.3,14.0 81.7,14.5 84.2,15.1 86.8,15.6 89.3,16.1 89.9,16.2 90.5,16.4 91.2,16.5 91.8,16.6 92.4,16.7 93.1,16.8 93.7,16.9 94.4,17.0 95.0,17.1 95.6,17.2 96.3,17.3 96.9,17.4 97.5,17.5 98.2,17.6 98.8,17.7 99.5,17.8 100.1,17.9 100.8,18.0 101.4,18.0 102.0,18.1 102.7,18.2 103.3,18.3 104.0,18.4 104.6,18.4 105.3,18.5 105.9,18.6 106.6,18.6 107.2,18.7 107.9,18.8 108.5,18.8 109.2,18.9 109.8,18.9 110.5,19.0 111.1,19.1 111.8,19.1 112.4,19.2 113.1,19.2 113.7,19.2 114.4,19.3 115.0,19.3 115.7,19.4 116.3,19.4 117.0,19.4 117.6,19.5 118.3,19.5 118.9,19.5 119.6,19.6 120.2,19.6 120.9,19.6 121.6,19.6 122.2,19.7 122.9,19.7 123.5,19.7 124.2,19.7 124.8,19.7 125.5,19.7 128.1,19.7 130.7,19.7 133.3,19.7 135.9,19.6 138.6,19.5 141.2,19.3 143.8,19.2 146.4,18.9 149.0,18.7 151.6,18.4 154.1,18.1 156.7,17.8 159.3,17.4 161.8,17.0 164.4,16.6 166.9,16.1 169.4,15.6 172.0,15.1 174.4,14.5 176.9,14.0 179.4,13.3 181.9,12.7 184.3,12.0 186.7,11.3 189.1,10.6 191.5,9.8 193.9,9.0 196.2,8.2 198.5,7.3 200.8,6.4"/>
+        <polyline points="7.5,132.6 9.0,127.7 10.4,122.8 11.9,117.9 13.5,113.0 15.1,108.1 16.7,103.2 18.3,98.2 20.0,93.3 21.7,88.4 23.5,83.5 25.3,78.6 27.1,73.7 28.9,68.8 30.8,63.9 32.7,59.0 34.6,54.1 36.6,49.3 38.6,44.4 40.6,39.6 42.6,34.8 44.7,30.0 46.8,25.3 48.9,20.5 51.0,15.8 53.2,11.1 55.4,6.4 57.6,1.8"/>
+        <polyline points="34.9,141.8 36.0,136.8 37.2,131.8 38.3,126.8 39.5,121.8 40.8,116.7 42.0,111.7 43.3,106.6 44.6,101.6 45.9,96.6 47.3,91.5 48.6,86.5 50.0,81.4 51.5,76.4 52.9,71.3 54.4,66.3 55.9,61.3 57.4,56.3 58.9,51.3 60.5,46.3 62.0,41.4 63.6,36.4 65.3,31.5 66.9,26.6 68.5,21.7 70.2,16.8 71.9,12.0 73.6,7.2"/>
+        <polyline points="63.7,148.6 64.5,143.6 65.3,138.5 66.1,133.4 66.9,128.2 67.8,123.1 68.6,118.0 69.5,112.9 70.4,107.7 71.3,102.6 72.2,97.4 73.2,92.3 74.2,87.1 75.1,82.0 76.1,76.8 77.2,71.7 78.2,66.6 79.2,61.5 80.3,56.4 81.4,51.3 82.5,46.2 83.6,41.1 84.7,36.1 85.8,31.1 86.9,26.1 88.1,21.1 89.3,16.1 90.5,11.2"/>
+        <polyline points="93.5,152.9 93.9,147.8 94.3,142.6 94.8,137.5 95.2,132.3 95.6,127.1 96.1,121.9 96.6,116.7 97.1,111.5 97.6,106.3 98.1,101.1 98.6,95.9 99.1,90.7 99.6,85.5 100.2,80.3 100.7,75.1 101.3,69.9 101.8,64.7 102.4,59.5 103.0,54.4 103.6,49.2 104.1,44.1 104.7,39.0 105.4,33.9 106.0,28.8 106.6,23.7 107.2,18.7 107.9,13.7"/>
+        <polyline points="123.8,154.6 123.8,149.4 123.9,144.3 123.9,139.1 124.0,133.9 124.0,128.7 124.1,123.5 124.1,118.3 124.2,113.1 124.3,107.8 124.3,102.6 124.4,97.4 124.5,92.1 124.5,86.9 124.6,81.7 124.7,76.4 124.7,71.2 124.8,66.0 124.9,60.8 124.9,55.6 125.0,50.4 125.1,45.3 125.2,40.1 125.2,35.0 125.3,29.9 125.4,24.8 125.5,19.7 125.6,14.7"/>
+        <polyline points="154.1,153.7 153.8,148.5 153.5,143.4 153.1,138.2 152.8,133.0 152.5,127.8 152.1,122.6 151.8,117.4 151.4,112.2 151.0,107.0 150.7,101.8 150.3,96.6 149.9,91.3 149.5,86.1 149.1,80.9 148.7,75.7 148.3,70.5 147.8,65.3 147.4,60.1 147.0,54.9 146.5,49.8 146.1,44.6 145.6,39.5 145.2,34.4 144.7,29.3 144.2,24.2 143.8,19.2 143.3,14.1"/>
+        <polyline points="184.0,150.1 183.4,145.0 182.7,139.9 182.0,134.8 181.3,129.7 180.5,124.5 179.8,119.4 179.0,114.2 178.2,109.0 177.5,103.9 176.6,98.7 175.8,93.5 175.0,88.4 174.1,83.2 173.3,78.0 172.4,72.9 171.5,67.7 170.6,62.6 169.6,57.5 168.7,52.4 167.8,47.3 166.8,42.2 165.8,37.1 164.9,32.0 163.9,27.0 162.9,22.0 161.8,17.0 160.8,12.1"/>
+        <polyline points="213.2,144.0 212.1,139.0 211.1,134.0 210.0,128.9 209.0,123.9 207.8,118.8 206.7,113.7 205.5,108.7 204.3,103.6 203.1,98.5 201.9,93.4 200.6,88.3 199.4,83.3 198.1,78.2 196.8,73.1 195.4,68.1 194.0,63.0 192.7,58.0 191.3,52.9 189.8,47.9 188.4,42.9 186.9,37.9 185.5,33.0 184.0,28.0 182.5,23.1 180.9,18.2 179.4,13.3 177.8,8.5"/>
+        <polyline points="241.0,135.5 239.7,130.5 238.3,125.6 236.9,120.7 235.4,115.7 233.9,110.8 232.4,105.8 230.9,100.9 229.3,95.9 227.7,90.9 226.1,86.0 224.4,81.0 222.7,76.1 221.0,71.1 219.2,66.2 217.4,61.3 215.6,56.4 213.8,51.5 211.9,46.6 210.1,41.7 208.2,36.9 206.2,32.0 204.3,27.2 202.3,22.4 200.3,17.6 198.2,12.9 196.2,8.2 194.1,3.5"/>
+        </g>
+        <g class="m-lat"><text x="5.7" y="102.8" text-anchor="end">40°N</text><text x="24.8" y="54.3" text-anchor="end">50°N</text></g>
+        <circle cx="27.7" cy="111.1" r="2.6" class="m-pt"/><circle cx="172.1" cy="55.1" r="2.6" class="m-pt"/><circle cx="197.7" cy="48.4" r="2.6" class="m-pt"/><circle cx="209.9" cy="102.6" r="2.6" class="m-pt"/><circle cx="171.7" cy="113.3" r="7" class="m-ring"/><circle cx="171.7" cy="113.3" r="3.2" class="m-now"/>
+      </svg>
+    </figure>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================================================= 2. POSITIONING -->
+<div class="wrap">
+  <div class="grid">
+    <p class="lede">Learning Design Manager at McKinsey &amp; Company, with nearly two decades in corporate and university learning. I combine learning science, AI and learning analytics to design learning that works at scale, and I advise senior stakeholders on turning complex requirements into experiences that fit people’s work.</p>
+
+    <ul class="glance" aria-label="At a glance">
+      <li><b class="num">~1,000</b><span>uses of the AI tools I built and published (total uses, not unique users)</span></li>
+      <li><b class="num">~2,000</b><span>learners practise against AI scoring guides I rebuilt</span></li>
+      <li><b class="num">6,000+</b><span>participants reached as lead faculty</span></li>
+      <li><b>Ed.D.</b><span>Walden University, 2024; research on learning analytics</span></li>
+    </ul>
+
+    <div class="problems">
+      <p class="label" id="problems-label">Usually brought in when</p>
+      <ol aria-labelledby="problems-label">
+        <li><q>We’re changing how people learn, and nobody has mapped the route.</q><p>I gather the evidence, make sense of it and recommend a path. <a href="#theme-transformation">Leading learning transformation</a></p></li>
+        <li><q>The programme exists, but it isn’t landing.</q><p>A new design, judged on whether it fits people’s roles and whether they use it. <a href="#theme-design">New design ideas</a></p></li>
+        <li><q>People need practice, not more slides.</q><p>AI role-plays, simulations and AI-scored practice built around real conversations. <a href="#theme-practice">Deliberate practice</a></p></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================= 3. SELECTED WORK, GROUPED BY THEME -->
+<section aria-labelledby="featured-title">
+  <div class="wrap">
+    <h2 class="section-title" id="featured-title">Selected work at McKinsey <span class="num">2022 – present</span></h2>
+
+    <!-- THEME 1 ════════════════════════════════════════════ -->
+    <div class="theme" id="theme-transformation">
+      <p class="label">Theme 1</p>
+      <h3 class="theme-title">Leading learning transformation</h3>
+      <p class="theme-intro">The destination is clear and the route isn’t. I collect the evidence that exists, add what’s missing, and turn it into a recommendation people can act on. The results show over months or years, not weeks.</p>
+
+      <div class="index">
+
+        <!-- CASE 01 ─────────────────────────────────────────── -->
+        <details class="case" id="case-tech-learning-journey" data-tier="featured">
+          <summary>
+            <span class="case-num">01</span>
+            <h4 class="case-title">Showing technologists what’s expected of them, and what to learn next</h4>
+            <span class="case-context">Engineers couldn’t easily see what was expected at their level. The answers were spread across half a dozen channels.</span>
+            <span class="case-result">Brief reframed after <b>7</b> learner interviews; first release planned for 18 December 2026.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Ongoing</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2026</span>
+              <span class="tags">Learning architecture / User research</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Lead designer for the technologist learning team, and leader of the squad doing the work. A senior colleague owns the product roadmap.</p>
+            <p class="label">What I did</p>
+            <p>The request was for a “front door” website. After seven learner interviews and a benchmark, I came back with a different question, the one people actually asked: what’s expected of me at my level, and what comes next?</p>
+            <p>We narrowed the first version to software and product engineers, and to credentials and certifications. I’m leading the analysis of what people earn at each level, a profile template other roles can reuse, and a map of how learners find things today.</p>
+            <p>This is learning architecture in plain terms: deciding how a large set of learning resources fits together for one audience, so people can see a route through it.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Pilot scope agreed with the sponsor; project plan with checkpoints through December.</span><span class="evidence">No learner outcomes yet. Proof of concept late November, first release 18 Dec 2026, wider launch 2027.</span></li>
+              <li><span>Part of a wider effort for about <b>3,000–4,000</b> engineers moving towards AI engineering.</span><span class="evidence">Audience size, not reach.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 02 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ai-skills-signals" data-tier="featured">
+          <summary>
+            <span class="case-num">02</span>
+            <h4 class="case-title">One way to read AI skills across 16+ separate initiatives</h4>
+            <span class="case-context">The firm ran more than 16 AI-skills initiatives and six kinds of credential, with no way to compare them.</span>
+            <span class="case-result">Four survey questions instead of a new survey; adopted on a small scale.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Measurement design / Stakeholder research</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>I did the research and wrote the recommendation. Rolling it out across programmes wasn’t my decision.</p>
+            <p class="label">What I did</p>
+            <p>I interviewed more than ten stakeholders and catalogued the data and credentials that already existed across the firm’s career milestones.</p>
+            <p>People were already tired of surveys, so I proposed adding four questions to the ones each milestone programme already runs. Three rotate and ask about using AI at work. One stays fixed and asks about discussing AI. All four measure self-efficacy, meaning how confident people feel that they can do something.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Recommendation adopted on a small scale; I build the questions into every project I work on.</span><span class="evidence">Recommendation, not a firmwide rollout. I can’t see how many programmes use the questions.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 03 ─────────────────────────────────────────── -->
+        <details class="case" id="case-data-baseline" data-tier="featured">
+          <summary>
+            <span class="case-num">03</span>
+            <h4 class="case-title">Testing my team’s data skills before teaching them</h4>
+            <span class="case-context">A 31-person learning design team wanted to move from basic AI use to working with data and AI agents, without knowing its starting point.</span>
+            <span class="case-result">The baseline showed overconfidence on core statistics, and the session series was built around it.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Capability baseline / Data literacy</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Chosen by the function’s global head to lead its AI and data analytics upskilling. I designed the data-literacy part of the baseline survey and analysed the results.</p>
+            <p class="label">What I did</p>
+            <p>The survey asked people how confident they felt, then tested them. Among those who rated their confidence at 4, about 45% answered correctly on correlation versus causation and about 56% on statistical significance.</p>
+            <p>That gap decided what we taught. I designed and ran sessions on hypothesis testing and on data analysis and visualisation, working with the firm’s analytics teams. I also co-designed the session on multi-agent systems (set-ups where several AI agents split a task between them), which became the most requested in the series, and wrote an executive overview of the topic for enterprise learning.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span><b>31</b> baseline responses; sessions delivered February to June 2026, with a monthly series continuing.</span><span class="evidence">Audience is peers in the learning function, not the whole firm.</span></li>
+              <li><span>About <b>19</b> colleagues joined the hypothesis-testing session.</span><span class="evidence">Attendance, from the session record.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 04 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ai-support-evaluation" data-tier="featured">
+          <summary>
+            <span class="case-num">04</span>
+            <h4 class="case-title">Finding out whether an AI assistant could help people mid-task</h4>
+            <span class="case-context">A team wanted to know if an AI agent could give reliable help while people were doing their jobs, and was close to stopping the experiment.</span>
+            <span class="case-result">Semi-finalist in the firm’s innovation competition; the team acted on the findings about two years later.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025</span>
+              <span class="tags">AI evaluation / Research design</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Thought partner on the study. I worked on the agent’s instructions and co-developed the evaluation method with the people analytics team. I didn’t build or roll out the eventual solution.</p>
+            <p class="label">What I did</p>
+            <p>I treated it as research. Before any testing, we agreed what “reliable” and “relevant” meant, then measured the agent against those definitions instead of impressions.</p>
+            <p>When the team considered quitting early, I argued for finishing, so we would have an answer either way. The framing of the problem turned out to be as useful as the result.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Semi-finalist in the firm’s internal innovation competition, 2025.</span><span class="evidence">Internal recognition.</span></li>
+              <li><span>The team acted on the recommendations about two years later.</span><span class="evidence">Implementation was theirs; my part was the framing and the analysis.</span></li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="quote-set">
+        <blockquote class="quote"><p>“Marco challenged us when we considered quitting the experiment early. We didn’t think the agent could work, but he coached us on new and challenging ideas…”</p></blockquote>
+        <blockquote class="quote" hidden><p>“Marco is one of the leading innovation experts in the org… I love his brain in this space.”</p></blockquote>
+      </div>
+
+      <p class="label also-label">Also in this theme</p>
+      <ul class="further">
+        <li><span class="fw-title">A client-ready deck and article on practical uses of generative AI in learning; reused in two client proposals</span><span class="fw-meta">2026</span><span class="status">Delivered</span></li>
+      </ul>
+    </div>
+
+    <!-- THEME 2 ════════════════════════════════════════════ -->
+    <div class="theme" id="theme-design">
+      <p class="label">Theme 2</p>
+      <h3 class="theme-title">Approaching problems with new design ideas</h3>
+      <p class="theme-intro">The problem is known and the old answer isn’t working. I’m not there to please people. I work out what matters in their role and build the best experience I can around it.</p>
+
+      <div class="index">
+
+        <!-- CASE 05 ─────────────────────────────────────────── -->
+        <details class="case" id="case-value-proposition" data-tier="featured">
+          <summary>
+            <span class="case-num">05</span>
+            <h4 class="case-title">Helping 2,200 experts get found for what they know</h4>
+            <span class="case-context">Most people in a 2,200-strong expert network had no published summary of their expertise, so colleagues searching for help often missed them.</span>
+            <span class="case-result">After the campaign, most of the experts measured moved into the top results of internal expert search.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Learning campaign / AI coach</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Learning designer and builder of the digital assets, in a campaign led by the network’s own learning team.</p>
+            <p class="label">What I did</p>
+            <p>The goal was for everyone to have a value proposition: a short, evidence-backed statement of what they bring to a client. Existing programmes reached fewer than one in five people, and there were few places to practise writing one and have it challenged.</p>
+            <p>I recommended a combined approach to the network’s directors and built most of it. A mobile-friendly microsite with a building-blocks framework and interviews with colleagues who had rewritten theirs. An AI coach that asks questions instead of writing the answer for you. Materials for a ready-to-run team workshop.</p>
+            <p>For the coach, I ran user testing against a rubric, collected the feedback and got the sign-off needed to release it to the firm’s early-access users.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Most of the experts measured moved into the top results of internal expert search, including some who had previously been hard to find at all.</span><span class="evidence">Internal analysis of the whole campaign, which these assets made possible; not the effect of one asset alone.</span></li>
+              <li><span>About <b>106</b> workshop participants given access to the coach; reused since with other teams and audiences.</span><span class="evidence">Access granted, not unique usage.</span></li>
+              <li><span>A learning team in another group asked to use the content for its own effort.</span><span class="evidence">Request, 2025.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 06 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ai-courses-redesign" data-tier="featured">
+          <summary>
+            <span class="case-num">06</span>
+            <h4 class="case-title">Turning AI lectures into work on a real client case</h4>
+            <span class="case-context">Two AI courses, one taken across the firm and one for senior leaders, relied on lectures when people needed to work through problems.</span>
+            <span class="case-result">Senior participants rated their ability to reimagine a business area <b>2.8</b> before and <b>5.2</b> after, out of 7.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2026</span>
+              <span class="tags">Active learning / Squad leadership</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Co-led both redesigns within the squad I lead. On the firm-wide course I set the plan, then handed design ownership to a junior colleague.</p>
+            <p class="label">What I did</p>
+            <p>I observed the firm-wide course and marked every point where learners were only listening. We rebuilt the concepts section around one client case that runs from start to finish.</p>
+            <p>For the senior programme, I co-led the redesign of an in-person workshop in Madrid and coached the same junior colleague as he built the programme’s first interactive microsite.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Senior participants’ self-rated ability rose from <b>2.8</b> to <b>5.2</b> out of 7; relevance rated <b>6.0</b>.</span><span class="evidence">Self-assessment, Madrid workshop, July 2026. Not a skills test.</span></li>
+              <li><span>On the firm-wide course, relevance rose from <b>5.91</b> to <b>6.3</b> out of 7.</span><span class="evidence">Survey before (n=47) and after (n=42), June 2026; shipped alongside other squad changes.</span></li>
+              <li><span>The microsite was showcased to the firm’s AI-for-learning community, and my colleague moved on to own a key deliverable himself.</span><span class="evidence">Internal community of practice.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 07 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ownership-programme" data-tier="featured">
+          <summary>
+            <span class="case-num">07</span>
+            <h4 class="case-title">Redesigning a programme only one in four eligible people used</h4>
+            <span class="case-context">A development programme for newly promoted professionals reached about 23% of those eligible. People found it long and repetitive.</span>
+            <span class="case-result">New seven-week design running now; early reports of people applying it at work.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Ongoing</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Programme design / AI practice</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Lead designer, responsible for the structure of the programme from start to finish.</p>
+            <p class="label">What I did</p>
+            <p>The programme builds ownership, accountability and communication before people manage others. Early on, I built a small website of the draft design with surveys embedded, so stakeholders could react before anything was final.</p>
+            <p>The result is three two-week units and a one-week capstone. Each unit mixes live virtual sessions, coaching and AI role-plays for difficult stakeholder conversations. Participants also develop their own value proposition and rehearse the firm’s communication frameworks.</p>
+            <figure class="diagram">
+              <svg viewBox="0 0 560 70" role="img" aria-labelledby="d3t">
+                <title id="d3t">Seven weeks: three two-week units followed by a one-week capstone.</title>
+                <g style="fill:var(--tint);stroke:var(--accent)">
+                  <rect x="0" y="10" width="150" height="26"/><rect x="160" y="10" width="150" height="26"/><rect x="320" y="10" width="150" height="26"/>
+                </g>
+                <rect x="480" y="10" width="75" height="26" style="fill:var(--accent)"/>
+                <g font-size="11" style="fill:var(--ink)"><text x="8" y="28">Unit 1 · 2 wks</text><text x="168" y="28">Unit 2 · 2 wks</text><text x="328" y="28">Unit 3 · 2 wks</text></g>
+                <text x="487" y="28" font-size="11" style="fill:#fff">Capstone</text>
+                <g font-size="10" style="fill:var(--muted)"><text x="0" y="58">week 1</text><text x="525" y="58">week 7</text></g>
+              </svg>
+              <figcaption>Programme structure, schematic.</figcaption>
+            </figure>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>One coach reported that everyone in her groups had completed the workplace challenge: they had held the difficult conversation, or prepared and scheduled it.</span><span class="evidence">Self-reported, mid-programme. Not a measure of behaviour change.</span></li>
+              <li><span>Participants describe the content as relevant to their role, with practical takeaways.</span><span class="evidence">Mid-programme feedback. Final evaluation after the programme ends on 2 Dec 2026.</span></li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="quote-set">
+        <blockquote class="quote"><p>“No matter what, Marco will have an idea. He’ll say, ‘yeah, we can do that.’”</p></blockquote>
+        <blockquote class="quote" hidden><p>“I appreciate Marco’s skills in navigating ambiguity and leading with clarity.”</p></blockquote>
+      </div>
+
+      <p class="label also-label">Also in this theme</p>
+      <ul class="further">
+        <li><span class="fw-title">Restarted a stalled leadership microsite for associate partners with a visual design-and-review process</span><span class="fw-meta">2023–2024</span><span class="status">Pilot</span></li>
+      </ul>
+    </div>
+
+    <!-- THEME 3 ════════════════════════════════════════════ -->
+    <div class="theme" id="theme-practice">
+      <p class="label">Theme 3</p>
+      <h3 class="theme-title">Enabling people to practise deliberately</h3>
+      <p class="theme-intro">Deliberate practice means focused, repeated practice with feedback, which is how difficult skills improve. I use AI and simulation so people can rehearse the moments that matter in their job, at a scale live coaching can’t reach.</p>
+
+      <div class="index">
+
+        <!-- CASE 08 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ai-rubrics" data-tier="featured">
+          <summary>
+            <span class="case-num">08</span>
+            <h4 class="case-title">Making AI feedback consistent for about 2,000 learners</h4>
+            <span class="case-context">An AI grader in a large firm-wide programme scored too generously while its written comments were too harsh, so learners got mixed messages.</span>
+            <span class="case-result">About <b>2,000</b> participants now practise against the rebuilt scoring guides.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Assessment / Applied AI</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>I redesigned the rubrics (the scoring guides the AI uses) for written uploads and spoken role-plays.</p>
+            <p class="label">What I did</p>
+            <p>I rewrote the criteria so the score and the comment point the same way.</p>
+            <p>Before launch, I re-ran 13 past submissions through the old and new rubrics side by side and walked stakeholders through every disagreement.</p>
+            <figure class="diagram">
+              <svg viewBox="0 0 560 110" role="img" aria-labelledby="d1t">
+                <title id="d1t">Before: score and written feedback point in different directions. After: they align.</title>
+                <text x="0" y="14" font-size="11" letter-spacing="1.5" style="fill:var(--muted)">BEFORE</text>
+                <line x1="0" y1="34" x2="210" y2="34" style="stroke:var(--ink)"/>
+                <text x="218" y="38" font-size="12" style="fill:var(--ink)">score: lenient</text>
+                <line x1="0" y1="52" x2="90" y2="52" stroke-dasharray="4 3" style="stroke:var(--ink)"/>
+                <text x="98" y="56" font-size="12" style="fill:var(--muted)">feedback: strict</text>
+                <text x="350" y="14" font-size="11" letter-spacing="1.5" style="fill:var(--muted)">AFTER</text>
+                <line x1="350" y1="34" x2="520" y2="34" stroke-width="1.5" style="stroke:var(--accent)"/>
+                <line x1="350" y1="52" x2="520" y2="52" stroke-width="1.5" stroke-dasharray="4 3" style="stroke:var(--accent)"/>
+                <text x="350" y="80" font-size="12" style="fill:var(--ink)">score and feedback agree</text>
+                <line x1="0" y1="100" x2="560" y2="100" style="stroke:var(--rule)"/>
+              </svg>
+              <figcaption>Schematic only. No internal interfaces shown.</figcaption>
+            </figure>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>About <b>2,000</b> participants have practised against the revised rubrics.</span><span class="evidence">Participants, not completions.</span></li>
+              <li><span>Programme owners reported more coherent feedback and more retry attempts meeting the bar.</span><span class="evidence">Reported by the programme; no controlled comparison.</span></li>
+              <li><span>Another business unit aligned its own rubrics to the new standard.</span><span class="evidence">2026 review.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 09 ─────────────────────────────────────────── -->
+        <details class="case" id="case-voice-coach" data-tier="featured">
+          <summary>
+            <span class="case-num">09</span>
+            <h4 class="case-title">A voice coach for senior leaders’ hardest AI conversations</h4>
+            <span class="case-context">Senior client leaders needed private, realistic practice before high-stakes conversations about the value of AI.</span>
+            <span class="case-result"><b>90+</b> practice sessions; shortlisted for the firm’s internal learning award.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Pilot</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2025–2026</span>
+              <span class="tags">Voice role-play / Executive learning</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Designer of the AI coach and of the learning pathway around it.</p>
+            <p class="label">What I did</p>
+            <p>I built a voice-capable role-play coach that plays a sceptical client and gives feedback afterwards, alongside a short curated pathway of supporting material.</p>
+            <p>Each version went through an evaluation rubric covering accuracy of content and quality of the experience, and I iterated before wider release.</p>
+            <figure class="diagram">
+              <svg viewBox="0 0 560 80" role="img" aria-labelledby="d2t">
+                <title id="d2t">Practice loop: brief, role-play, feedback, retry.</title>
+                <g font-size="12" style="fill:var(--ink)">
+                  <text x="0" y="40">Brief</text><text x="135" y="40">Role-play</text><text x="290" y="40">Feedback</text><text x="440" y="40">Retry</text>
+                </g>
+                <g stroke-width="1" style="stroke:var(--accent)">
+                  <line x1="45" y1="36" x2="120" y2="36"/><line x1="210" y1="36" x2="275" y2="36"/><line x1="360" y1="36" x2="425" y2="36"/>
+                  <path d="M470 46 Q470 70 300 70 Q150 70 150 50" fill="none" stroke-dasharray="3 3"/>
+                </g>
+              </svg>
+              <figcaption>Schematic only. No internal interfaces shown.</figcaption>
+            </figure>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span><b>90+</b> practice sessions with dozens of senior users.</span><span class="evidence">This tool only; not part of the ~1,000 total-uses figure above.</span></li>
+              <li><span>Shortlisted for the firm’s internal learning award and added to its AI enablement resources.</span><span class="evidence">Award shortlist, 2026.</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- CASE 10 ─────────────────────────────────────────── -->
+        <details class="case" id="case-simulations" data-tier="featured">
+          <summary>
+            <span class="case-num">10</span>
+            <h4 class="case-title">Simulations that assess what people can actually do</h4>
+            <span class="case-context">Senior leaders needed to practise giving hard feedback, and other teams wanted to assess applied skill without a live assessor.</span>
+            <span class="case-result">Feedback simulation used by <b>1,000+</b> people, with difficulty tuned from pilot data.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2024–2025</span>
+              <span class="tags">Simulation / Assessment</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>Lead designer, working with senior stakeholders, subject experts and a simulation platform.</p>
+            <p class="label">What I did</p>
+            <p>For the feedback simulation, used by engagement leaders and team leaders, I designed the scenarios with senior stakeholders and used participant data from each pilot round to adjust how hard each one was.</p>
+            <p>For a commercial skills simulation, I storyboarded every interaction as a flow chart, so the subject expert could see the nuances and challenge them before anything was built.</p>
+            <p>I also started the first of four assessment simulations, which judge competence rather than teach. The subject experts disagreed at first, so I set up a shared visual design process to get them aligned.</p>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span><b>1,000+</b> users of the feedback simulation.</span><span class="evidence">Figure from my earlier CV; difficulty tuning confirmed in the 2025 review.</span></li>
+              <li><span>The commercial simulation assessed applied skill in a self-paced format, which the team hadn’t attempted before.</span><span class="evidence">2025 review.</span></li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="quote-set">
+        <blockquote class="quote"><p>“[He] knew exactly how to get the most out of the [simulation] tool and created an experience that immersed learners and allowed application-level assessment, something not previously attempted asynchronously.”</p></blockquote>
+        <blockquote class="quote" hidden><p>“[He] meticulously storyboarded every interaction with detailed flow charts that allowed our [subject expert] to see the nuances of the simulation and make informed suggestions.”</p></blockquote>
+      </div>
+
+      <p class="label also-label">Also in this theme</p>
+      <ul class="further">
+        <li><span class="fw-title">AI-building workshops, workbooks and voice role-plays for senior technologists; pilot satisfaction 5.5&#8239;/&#8239;7 (not a skills measure)</span><span class="fw-meta">2026</span><span class="status">Pilot</span></li>
+        <li><span class="fw-title">User experience and learning design for a mandatory AI certification, for a potential audience of up to ~35,000</span><span class="fw-meta">2026</span><span class="status">In development</span></li>
+      </ul>
+    </div>
+
+    <!-- THEME 4 ════════════════════════════════════════════ -->
+    <div class="theme" id="theme-capability">
+      <p class="label">Theme 4</p>
+      <h3 class="theme-title">Building capability across the firm</h3>
+      <p class="theme-intro">Work that raises the level of the people around me: colleagues in my own function, consultants across regions and large faculty audiences.</p>
+
+      <div class="index">
+
+        <!-- CASE 11 ─────────────────────────────────────────── -->
+        <details class="case" id="case-ai-adoption" data-tier="featured">
+          <summary>
+            <span class="case-num">11</span>
+            <h4 class="case-title">Helping a 30-person design team make AI part of the working week</h4>
+            <span class="case-context">A learning design team wanted to move from curiosity about AI to using it every week.</span>
+            <span class="case-result">Weekly AI use rose from <b>60%</b> to <b>95%</b> in nine months, in an effort I co-led.</span>
+            <span class="case-toggle">Read case study</span>
+            <span class="case-meta">
+              <span class="status">Delivered</span>
+              <span>McKinsey &amp; Company</span>
+              <span class="num">2024–2026</span>
+              <span class="tags">AI adoption / Facilitation</span>
+            </span>
+          </summary>
+          <div class="case-body">
+            <p class="label">My role</p>
+            <p>One of the colleagues leading the team’s AI adoption.</p>
+            <p class="label">What I did</p>
+            <ul>
+              <li>Co-created a set of short interviews in which colleagues shared their AI breakthroughs and habits, which became a shared knowledge base.</li>
+              <li>Facilitated AI office hours and, later, advanced workshops.</li>
+              <li>Co-created peer practice sessions.</li>
+            </ul>
+            <p class="label">Results</p>
+            <ul class="results">
+              <li><span>Weekly AI tool use rose from <b>60%</b> to <b>95%</b>.</span><span class="evidence">Team survey over nine months of 2024; team-wide and co-led.</span></li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+
+      <div class="quote-set">
+        <blockquote class="quote"><p>“Whenever Marco’s on a project, [I have] complete confidence in his ability to execute and [he] inspires confidence in stakeholders.”</p></blockquote>
+        <blockquote class="quote" hidden><p>“No matter how many questions I asked, Marco always took the time to explain things thoroughly.”</p></blockquote>
+      </div>
+
+      <p class="label also-label">Also in this theme</p>
+      <ul class="further">
+        <li><span class="fw-title">Website for a curated AI learning week for consultants in North America, built to regenerate from a data table</span><span class="fw-meta">2026</span><span class="status">In development</span></li>
+        <li><span class="fw-title">Lead faculty for a firm-wide leadership webinar series, 6,000+ participants; AI Ambassador and inclusion facilitator</span><span class="fw-meta">2024–2026</span><span class="status">Ongoing</span></li>
+        <li><span class="fw-title">Co-lead of the learning function’s impact-measurement community of practice</span><span class="fw-meta">2025–2026</span><span class="status">Ongoing</span></li>
+        <li><span class="fw-title">Courses in a six-module digital portfolio on proposal writing, for audiences from business analyst to senior partner</span><span class="fw-meta">2025</span><span class="status">Delivered</span></li>
+        <li><span class="fw-title">15+ microlearning, scenario and simulation solutions; one adaptive design was adopted for a client-facing version</span><span class="fw-meta">2022–2025</span><span class="status">Delivered</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================= 5. EARLIER CAREER -->
+<section aria-labelledby="earlier-title">
+  <div class="wrap">
+    <h2 class="section-title" id="earlier-title">Before McKinsey <span class="num">2008 – 2022</span></h2>
+
+    <article class="era" id="era-jci" data-tier="earlier">
+      <div class="era-head">
+        <h3>Johnson Controls</h3>
+        <p>Senior Learning Experience Designer, EMEA · <span class="num">2019–2022</span></p>
+        <p class="label era-place">Utrecht, the Netherlands</p>
+      </div>
+      <div class="era-body">
+        <p>Learning for a regional workforce across Europe, the Middle East and Africa: a new learning platform, sales training and skills programmes for field technicians, delivered in many languages.</p>
+        <ul class="results">
+          <li><span>Launched a learning platform that reached <b>12,000+</b> employees, with <b>75%</b> adoption in six months.</span><span class="evidence">As reported at the time.</span></li>
+          <li><span>Led a gamified sales training programme that won the 2021 Brandon Hall <b>Gold</b> Award for Best Sales Training Program.</span><span class="evidence">External award.</span></li>
+          <li><span>Technicians’ organisational health scores rose <b>15%</b> alongside a data-informed skills programme.</span><span class="evidence">Associated change, not proven cause.</span></li>
+        </ul>
+        <div class="clips">
+          <div class="clip">
+            <div class="video" data-src="https://www.youtube-nocookie.com/embed/OD_o961oTJM?autoplay=1" data-title="Health behaviours: split-screen discussion video">
+              <button type="button" aria-label="Play video: Health behaviours (loads from YouTube)"><span class="v-label">Play video</span><span class="v-note">Loads from YouTube when clicked</span></button>
+            </div>
+            <h4>Health behaviours video series</h4>
+            <p>Scripts and storyboards for 12 team-discussion videos with facilitator guides, localised into 14 languages.</p>
+          </div>
+          <div class="clip">
+            <div class="video" data-src="https://jcpublic.kzoplatform.com:443/player/medium/1803030511396852848" data-title="New software release walkthrough">
+              <button type="button" aria-label="Play video: Software release walkthrough (loads from Kaltura)"><span class="v-label">Play video</span><span class="v-note">Loads from Kaltura when clicked</span></button>
+            </div>
+            <h4>Software release walkthroughs</h4>
+            <p>Customer-facing workflow videos, with screens and subtitles localised into about 10 languages.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="era" id="era-laureate" data-tier="earlier">
+      <div class="era-head">
+        <h3>Laureate International Universities</h3>
+        <p>Learning Architect · <span class="num">2008–2014, 2015–2019</span></p>
+        <p class="label era-place">Amsterdam, the Netherlands</p>
+      </div>
+      <div class="era-body">
+        <p>Online degree programmes, latterly including the University of Roehampton partnership. Earlier on, content migration, online course design and student onboarding.</p>
+        <ul class="results">
+          <li><span>Student retention rose <b>20%</b> after I led a redesign of the learning model.</span><span class="evidence">As reported at the time.</span></li>
+          <li><span>Content development time fell <b>40%</b> after we changed how subject experts were onboarded.</span><span class="evidence">As reported at the time.</span></li>
+          <li><span>Brought industry tools such as AWS and Tableau into computer science courses.</span><span class="evidence">Curriculum change.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="era" id="era-idexx" data-tier="earlier">
+      <div class="era-head">
+        <h3>IDEXX</h3>
+        <p>Learning Designer · <span class="num">2014–2015</span></p>
+        <p class="label era-place">Hoofddorp, the Netherlands</p>
+      </div>
+      <div class="era-body">
+        <p>Multilingual product and sales training for veterinary teams.</p>
+        <ul class="results">
+          <li><span>Launched the company’s learning portal across <b>5</b> European markets.</span><span class="evidence">Launch scope.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="era" id="era-doctoral" data-tier="earlier">
+      <div class="era-head">
+        <h3>Doctoral coursework</h3>
+        <p><span class="num">2019</span></p>
+      </div>
+      <div class="era-body">
+        <div class="clips">
+          <div class="clip">
+            <div class="video" data-src="https://www.youtube-nocookie.com/embed/Xsh7ZHxJg20?autoplay=1" data-title="Learning analytics for learning design: animation">
+              <button type="button" aria-label="Play video: Learning analytics animation (loads from YouTube)"><span class="v-label">Play video</span><span class="v-note">Loads from YouTube when clicked</span></button>
+            </div>
+            <h4>Learning analytics, explained in animation</h4>
+            <p>Built entirely in PowerPoint with a synthetic voice-over. Skip to 1:40 for the animated part.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================================================= 6. ARCHIVE -->
+<section aria-labelledby="archive-title">
+  <div class="wrap">
+    <h2 class="section-title" id="archive-title">Archive <span class="num">2014 – 2020</span></h2>
+    <details class="archive" id="archive">
+      <summary>
+        <span class="case-num">—</span>
+        <span>
+          <span class="a-title">Earlier e-learning samples</span>
+          <span class="a-sub">Self-paced modules I built between 2014 and 2020. Some are over ten years old; I keep them as a record of hands-on build work, not as examples of how I design today.</span>
+          <span class="case-toggle">Open archive</span>
+        </span>
+      </summary>
+      <div class="archive-body">
+        <p class="archive-note">These older modules are best viewed in Firefox; some may not display fully in other browsers. Each opens in a new tab.</p>
+        <div class="archive-groups">
+          <div>
+            <h3>Johnson Controls <span class="num">2020</span></h3>
+            <ul>
+              <li><a href="https://learning-design-portfolio.s3.eu-central-1.amazonaws.com/trainer_program/story.html" target="_blank" rel="noopener">Train the trainer: facilitation skills</a><span>Self-paced module on facilitation skills for trainers, 2020.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Laureate <span class="num">2016–2018</span></h3>
+            <ul>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/UKL1_CKIT_531_Week07_CYK/story_html5.html" target="_blank" rel="noopener">Cyber security</a><span>Weekly module for an online computing degree, 2016–2018.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/videoExamples/CKIT_530_videoExample.html" target="_blank" rel="noopener">Video lesson: cybercrime and smartphones</a><span>Short video lesson for the same degree, 2016–2018.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/KMBA_634_socialMedia/story_html5.html" target="_blank" rel="noopener">Social media in digital marketing</a><span>Module for an online MBA, 2016–2018.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/KMBA_634_dataAnalytics/story_html5.html" target="_blank" rel="noopener">Data analytics in digital marketing</a><span>Module for the same MBA, 2016–2018.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/microlearning/Microlearning-Influencing.pptx" target="_blank" rel="noopener">Microlearning pitch: influencing (PowerPoint)</a><span>Concept pitch for a microlearning series, 2016–2018.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/microlearning/Microlearning+Prototype+-+Politics+at+work.png" target="_blank" rel="noopener">Mobile microlearning mock-up (image)</a><span>Early mobile prototype, a static image, 2016–2018.</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>IDEXX <span class="num">2014–2015</span></h3>
+            <ul>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/702010-learning-model/story_html5.html" target="_blank" rel="noopener">Train the trainer: the 70-20-10 model</a><span>Module for in-house trainers, 2014–2015.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/SNAP_4Dx-interpretationGuide/story_html5.html" target="_blank" rel="noopener">Product training: SNAP 4Dx</a><span>How to read a diagnostic test, 2014–2015.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/beatingAbaxis/story_html5.html" target="_blank" rel="noopener">Sales training: competitive positioning</a><span>Sales module for field teams, 2014–2015.</span></li>
+              <li><a href="https://s3.eu-central-1.amazonaws.com/learning-design-portfolio/catOne-intro/story_html5.html" target="_blank" rel="noopener">Product training: Catalyst One</a><span>Introduction to a lab analyser, 2014–2015.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================================================= 7. CREDENTIALS -->
+<section aria-labelledby="creds-title">
+  <div class="wrap">
+    <h2 class="section-title" id="creds-title">Education, talks and recognition</h2>
+    <ul class="creds">
+      <li><span></span><span class="yr">2026</span><span><strong>Speaker, Online Educa Berlin (main programme)</strong><span class="d">“Making the invisible visible: capturing evidence of learning in AI conversations”. Scheduled for December 2026.</span></span></li>
+      <li><span></span><span class="yr">2026</span><span><strong>Learning Lighthouse Award, shortlist</strong><span class="d">McKinsey internal learning award, for the AI voice coach (case 09)</span></span></li>
+      <li><span></span><span class="yr">2026</span><span><strong>Recognised as one of the firm’s AI builders</strong><span class="d">McKinsey internal campaign; about 1,000 uses of the AI tools I published (total uses, not unique users)</span></span></li>
+      <li><span></span><span class="yr">2025</span><span><strong>AI for Learning Design Bootcamp</strong><span class="d">Dr Philippa Hardman</span></span></li>
+      <li><span></span><span class="yr">2025</span><span><strong>Innovation Olympics, semi-finalist</strong><span class="d">McKinsey internal innovation competition, for the AI assistant evaluation (case 04)</span></span></li>
+      <li><span></span><span class="yr">2024</span><span><strong>Doctor of Education (Ed.D.), Walden University</strong><span class="d">Dissertation: learning designers’ views on the barriers to using analytics in corporate online learning</span></span></li>
+      <li><span></span><span class="yr">2021</span><span><strong>Brandon Hall Gold Award, Best Sales Training Program</strong><span class="d">Johnson Controls</span></span></li>
+      <li><span></span><span class="yr">2019</span><span><strong>INTED conference paper</strong><span class="d">“Blended learning: serving adults at times of reduced funding”</span></span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ================================================= 8. FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Marco D’Alessio</span>
+    <span><a href="mailto:dalessio.m@icloud.com">Email</a> · <a href="https://www.linkedin.com/in/marcodalessio">LinkedIn</a></span>
+  </div>
+</footer>
+
+<script>
+  // Click-to-load video: no third-party request until the visitor asks for it.
+  document.querySelectorAll('.video').forEach(function (box) {
+    var btn = box.querySelector('button');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      // YouTube refuses to play embeds on pages opened from a local file
+      // (no referrer). Locally, open the video on YouTube instead.
+      var yt = box.dataset.src.match(/youtube(?:-nocookie)?\.com\/embed\/([\w-]+)/);
+      if (yt && location.protocol === 'file:') {
+        window.open('https://www.youtube.com/watch?v=' + yt[1], '_blank', 'noopener');
+        return;
+      }
+      var f = document.createElement('iframe');
+      f.src = box.dataset.src;
+      f.title = box.dataset.title || 'Video';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      box.classList.add('is-loaded');
+      box.replaceChildren(f);
+      f.focus();
+    });
+  });
+  // Rotating quotes: show one quote per theme at random.
+  document.querySelectorAll('.quote-set').forEach(function (set) {
+    var qs = set.querySelectorAll('.quote');
+    if (qs.length < 2) return;
+    var pick = Math.floor(Math.random() * qs.length);
+    qs.forEach(function (q, i) { q.hidden = (i !== pick); });
+  });
+  // Open a case study when the URL points at it, e.g. index.html#case-ai-rubrics
+  function openFromHash() {
+    var el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+</body>
 </html>
-

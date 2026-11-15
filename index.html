@@ -49,13 +49,13 @@
   a <div class="theme" id="theme-..."> holding: label "Theme N", an
   <h3 class="theme-title">, a <p class="theme-intro">, a <div class="index">
   of cases (case titles are <h4>), a <div class="quote-set"> and an
-  "Also in this theme" <ul class="further">.
+  "See also:" <ul class="further">.
 
   ROTATING QUOTES — put 1+ <blockquote class="quote"> in a .quote-set.
   Add the hidden attribute to all but the first; on load the script shows
   one at random. Without JavaScript the first one shows.
 
-  FURTHER WORK (tier: further) — one <li> in a theme's "Also in this theme" list
+  FURTHER WORK (tier: further) — one <li> in a theme's "See also:" list
     <li><span class="fw-title">TITLE</span><span class="fw-meta">PERIOD</span><span class="status">STATUS</span></li>
 
   EARLIER CAREER (tier: earlier) — one <article class="era"> per employer.
@@ -103,6 +103,7 @@
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+@media (min-width: 721px) { html { scroll-padding-top: 4rem; } }  /* keeps anchor targets clear of the sticky index */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
   margin: 0; background: var(--paper); color: var(--ink);
@@ -166,9 +167,9 @@ section { margin-top: var(--gap-xl); }
 .places-map .m-now { fill: var(--accent); }
 .places-map .m-ring { fill: none; stroke: var(--accent); stroke-width: .6; opacity: .5; }
 .portrait { display: none; }
-/* Photo is OFF by default. Add class="with-photo" to <body> to show images/portrait.jpg */
+/* Photo is ON: class="with-photo" on <body>; the image file image_1.jpg sits next to index.html */
 .with-photo .portrait {
-  display: block; grid-column: 1 / 3; grid-row: 1 / 3; width: 100%; aspect-ratio: 4 / 5;
+  display: block; grid-column: 1 / 3; grid-row: 1 / 3; width: 100%; height: auto; aspect-ratio: 4 / 5; align-self: start;
   object-fit: cover; filter: grayscale(1); margin-bottom: .25rem;
 }
 .with-photo .masthead h1, .with-photo .masthead .role { grid-column: 3 / 10; }
@@ -197,8 +198,21 @@ section { margin-top: var(--gap-xl); }
   padding: .9rem 0; border-top: 1px solid var(--rule);
 }
 .problems li:last-child { border-bottom: 1px solid var(--rule); }
-.problems q { font: italic 400 1.15rem/1.4 var(--serif); quotes: "“" "”"; }
+.problems q { font: italic 400 1.15rem/1.4 var(--serif); quotes: none; }
 .problems p { margin: 0; font-size: .97rem; color: var(--muted); }
+
+/* ---------- Section index (sticky on desktop) ---------- */
+.site-nav { background: var(--paper); border-bottom: 1px solid var(--rule); }
+.site-nav ul {
+  margin: 0; padding: .7rem 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: .1rem 0; font-size: .88rem; line-height: 1.4;
+}
+.site-nav li + li::before { content: "·"; margin: 0 .6rem; color: var(--muted); }
+.site-nav a { color: var(--muted); text-decoration: none; padding: .15rem 0; }
+.site-nav a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+@media (min-width: 721px) {
+  .site-nav { position: sticky; top: 0; z-index: 4; }
+}
 
 /* ---------- 3. Featured case studies ---------- */
 .index { margin: 0; }
@@ -215,6 +229,13 @@ section { margin-top: var(--gap-xl); }
 .case summary > .case-meta { grid-column: 3; grid-row: 1 / span 4; }
 .case-title { grid-row: 1; } .case-context { grid-row: 2; } .case-result { grid-row: 3; }
 .case-toggle { grid-row: 4; justify-self: start; }
+/* Situation / Complication / Resolution summary (case 01 first; roll out case by case) */
+.case-situation, .case-complication, .case-resolution { display: block; margin-top: .45rem; max-width: var(--measure); color: var(--muted); }
+.case-situation { grid-row: 2; } .case-complication { grid-row: 3; } .case-resolution { grid-row: 4; color: var(--ink); }
+.scr-k { margin-right: .5rem; font: 600 .72rem/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.case-resolution .scr-k { color: var(--accent); }
+.case summary:has(.case-situation) > .case-meta { grid-row: 1 / span 5; }
+.case summary:has(.case-situation) > .case-toggle { grid-row: 5; }
 .case-num { font: 400 .95rem/2 var(--sans); font-variant-numeric: tabular-nums; color: var(--muted); }
 .case-title { margin: 0; font: 400 clamp(1.3rem, 2.3vw, 1.65rem)/1.25 var(--serif); }
 .case-context { display: block; margin-top: .4rem; color: var(--muted); max-width: var(--measure); }
@@ -374,6 +395,8 @@ section { margin-top: var(--gap-xl); }
   .case summary { grid-template-columns: 2.25rem minmax(0, 1fr); }
   .case summary > .case-meta { grid-column: 2; grid-row: 4; }
   .case-toggle { grid-row: 5; }
+  .case summary:has(.case-situation) > .case-meta { grid-column: 2; grid-row: 5; }
+  .case summary:has(.case-situation) > .case-toggle { grid-row: 6; }
   .case-meta { flex-direction: row; flex-wrap: wrap; gap: .1rem .9rem; align-items: baseline; text-align: left; margin-top: .9rem; }
   .case-meta .status { margin: 0; }
   .case-body { grid-template-columns: 2.25rem minmax(0, 1fr); }
@@ -401,6 +424,8 @@ section { margin-top: var(--gap-xl); }
   .video:not(.is-loaded) { aspect-ratio: 12 / 5; }
 }
 @media (max-width: 480px) {
+  .site-nav ul { font-size: .82rem; }
+  .site-nav li + li::before { margin: 0 .4rem; }
   body { font-size: 1rem; }
   .results li { grid-template-columns: 1fr; row-gap: .35rem; }
   .creds li { grid-template-columns: 4rem minmax(0, 1fr); }
@@ -416,7 +441,7 @@ section { margin-top: var(--gap-xl); }
   html { font-size: 9.2pt; }
   body { color: #000; }
   .draft [data-ph] { text-decoration: none; }
-  .skip, .case-toggle, .case-body, .video, .clips, .archive, .problems, .diagram, .quote, .portrait { display: none !important; }
+  .skip, .site-nav, .case-toggle, .case-body, .video, .clips, .archive, .problems, .diagram, .quote, .portrait { display: none !important; }
   section { margin-top: 1.4rem; break-inside: auto; }
   .masthead { padding-top: 0; }
   .masthead h1 { font-size: 2.4rem; }
@@ -437,16 +462,15 @@ section { margin-top: var(--gap-xl); }
 </style>
 </head>
 
-<body>
+<body class="with-photo">
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ================================================= 1. MASTHEAD -->
 <header class="masthead">
   <div class="wrap">
     <div class="grid">
-      <img class="portrait" src="images/portrait.jpg" alt="Marco D’Alessio" width="400" height="500" loading="lazy">
+      <img class="portrait" src="images/image_1.jpg" alt="Marco D’Alessio" width="1392" height="1392">
       <h1>Marco D’Alessio</h1>
-      <p class="role">I design learning for large organisations, increasingly with AI, and look for evidence that it works.</p>
       <ul class="contact">
         <li>Barcelona, Spain</li>
         <li><a href="https://www.linkedin.com/in/marcodalessio" data-print="linkedin.com/in/marcodalessio">LinkedIn</a></li>
@@ -481,6 +505,16 @@ section { margin-top: var(--gap-xl); }
   </div>
 </header>
 
+<nav class="site-nav" aria-label="Page sections">
+  <div class="wrap">
+    <ul>
+      <li><a href="#featured-title">Case studies</a></li>
+      <li><a href="#earlier">Earlier work</a></li>
+      <li><a href="#credentials">Credentials</a></li>
+    </ul>
+  </div>
+</nav>
+
 <main id="main">
 
 <!-- ================================================= 2. POSITIONING -->
@@ -489,33 +523,34 @@ section { margin-top: var(--gap-xl); }
     <p class="lede">Learning Design Manager at McKinsey &amp; Company, with nearly two decades in corporate and university learning. I combine learning science, AI and learning analytics to design learning that works at scale, and I advise senior stakeholders on turning complex requirements into experiences that fit people’s work.</p>
 
     <ul class="glance" aria-label="At a glance">
-      <li><b class="num">~1,000</b><span>uses of the AI tools I built and published (total uses, not unique users)</span></li>
-      <li><b class="num">~2,000</b><span>learners practise against AI scoring guides I rebuilt</span></li>
+      <li><b class="num">~1,000</b><span>times the AI tools I built and published have been used</span></li>
+      <li><b class="num">~2,000</b><span>learners practice against AI scoring guides I rebuilt</span></li>
       <li><b class="num">6,000+</b><span>participants reached as lead faculty</span></li>
       <li><b>Ed.D.</b><span>Walden University, 2024; research on learning analytics</span></li>
     </ul>
-
-    <div class="problems">
-      <p class="label" id="problems-label">Usually brought in when</p>
-      <ol aria-labelledby="problems-label">
-        <li><q>We’re changing how people learn, and nobody has mapped the route.</q><p>I gather the evidence, make sense of it and recommend a path. <a href="#theme-transformation">Leading learning transformation</a></p></li>
-        <li><q>The programme exists, but it isn’t landing.</q><p>A new design, judged on whether it fits people’s roles and whether they use it. <a href="#theme-design">New design ideas</a></p></li>
-        <li><q>People need practice, not more slides.</q><p>AI role-plays, simulations and AI-scored practice built around real conversations. <a href="#theme-practice">Deliberate practice</a></p></li>
-      </ol>
-    </div>
   </div>
 </div>
 
 <!-- ================================================= 3. SELECTED WORK, GROUPED BY THEME -->
-<section aria-labelledby="featured-title">
+<section id="selected-work" aria-labelledby="featured-title">
   <div class="wrap">
     <h2 class="section-title" id="featured-title">Selected work at McKinsey <span class="num">2022 – present</span></h2>
+    <div class="grid">
+    <div class="problems">
+      <p class="label" id="problems-label">Typically, I lead projects in which:</p>
+      <ol aria-labelledby="problems-label">
+        <li><q>The problem is new, and we need to figure out how to solve it.</q><p>See <a href="#theme-transformation">Leading learning transformation</a></p></li>
+        <li><q>Processes, roles, and responsibilities change, and old solutions no longer work.</q><p>See <a href="#theme-design">New design ideas</a></p></li>
+        <li><q>People need to practice deliberately.</q><p>See <a href="#theme-practice">Deliberate practice</a></p></li>
+        <li><q>People need to grow their capabilities.</q><p>See <a href="#theme-capability">Building capability</a></p></li>
+      </ol>
+    </div>
+    </div>
 
     <!-- THEME 1 ════════════════════════════════════════════ -->
     <div class="theme" id="theme-transformation">
-      <p class="label">Theme 1</p>
       <h3 class="theme-title">Leading learning transformation</h3>
-      <p class="theme-intro">The destination is clear and the route isn’t. I collect the evidence that exists, add what’s missing, and turn it into a recommendation people can act on. The results show over months or years, not weeks.</p>
+      <p class="theme-intro">The destination might be clear, but the route isn’t. I collect evidence, identify gaps, and provide actionable recommendations for short-, mid-, or long-term horizons.</p>
 
       <div class="index">
 
@@ -523,9 +558,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-tech-learning-journey" data-tier="featured">
           <summary>
             <span class="case-num">01</span>
-            <h4 class="case-title">Showing technologists what’s expected of them, and what to learn next</h4>
-            <span class="case-context">Engineers couldn’t easily see what was expected at their level. The answers were spread across half a dozen channels.</span>
-            <span class="case-result">Brief reframed after <b>7</b> learner interviews; first release planned for 18 December 2026.</span>
+            <h4 class="case-title">Providing engineers with clear and tailored development opportunities that move the organization forward</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> Engineers need to find the technical training that matters most to them, cutting through the hype and ever-increasing offerings.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> Information is scattered through multiple sources, some without owners, resulting in outdated information and poor relevance. New training releases are often broadcasted, targeting broad audiences even when the timing isn't right. </span>            
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> An architecture recommendation connecting our program sources, learning vendors, and selected people data.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Ongoing</span>
@@ -535,17 +571,10 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Lead designer for the technologist learning team, and leader of the squad doing the work. A senior colleague owns the product roadmap.</p>
-            <p class="label">What I did</p>
-            <p>The request was for a “front door” website. After seven learner interviews and a benchmark, I came back with a different question, the one people actually asked: what’s expected of me at my level, and what comes next?</p>
-            <p>We narrowed the first version to software and product engineers, and to credentials and certifications. I’m leading the analysis of what people earn at each level, a profile template other roles can reuse, and a map of how learners find things today.</p>
-            <p>This is learning architecture in plain terms: deciding how a large set of learning resources fits together for one audience, so people can see a route through it.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Pilot scope agreed with the sponsor; project plan with checkpoints through December.</span><span class="evidence">No learner outcomes yet. Proof of concept late November, first release 18 Dec 2026, wider launch 2027.</span></li>
-              <li><span>Part of a wider effort for about <b>3,000–4,000</b> engineers moving towards AI engineering.</span><span class="evidence">Audience size, not reach.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>The request came in as "reimagination" of the engineers' learning journey. The stakeholders would like a central place where people could go in and obtain relevant information on their technical development. </p>
+            <p>After conducting a few user interviews, I proposed to architect a place for three users: the learning team, the engineers, and their managers. Each of them might prefer to interact with the system in different ways; a website, a dashboard, or a chatbot. </p>
+            <p>Due to the scope of the project, we agreed to start with a small subset of users to pilot, before scaling to the entire audience.</p>
           </div>
         </details>
 
@@ -553,9 +582,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-ai-skills-signals" data-tier="featured">
           <summary>
             <span class="case-num">02</span>
-            <h4 class="case-title">One way to read AI skills across 16+ separate initiatives</h4>
-            <span class="case-context">The firm ran more than 16 AI-skills initiatives and six kinds of credential, with no way to compare them.</span>
-            <span class="case-result">Four survey questions instead of a new survey; adopted on a small scale.</span>
+            <h4 class="case-title">Creating a coherent system to detect AI skill signals and track people’s development over time</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> More than 16 AI-related programs and six AI credentials run across the firm, each with its own way to collect skills signals.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> We didn’t consistently track how skills changed over time, and weren’t sure whether programs asked about AI skills at all.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> Adding targeted AI-related questions to the existing surveys that each career-milestone program already runs.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
@@ -565,15 +595,9 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>I did the research and wrote the recommendation. Rolling it out across programmes wasn’t my decision.</p>
-            <p class="label">What I did</p>
-            <p>I interviewed more than ten stakeholders and catalogued the data and credentials that already existed across the firm’s career milestones.</p>
-            <p>People were already tired of surveys, so I proposed adding four questions to the ones each milestone programme already runs. Three rotate and ask about using AI at work. One stays fixed and asks about discussing AI. All four measure self-efficacy, meaning how confident people feel that they can do something.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Recommendation adopted on a small scale; I build the questions into every project I work on.</span><span class="evidence">Recommendation, not a firmwide rollout. I can’t see how many programmes use the questions.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>After interviewing more than ten stakeholders who manage AI-related programs and upskilling initiatives at the firm, I mapped all skills signals we collect and highlighted the gaps and opportunities to consistently collect data so that we can track how skills develop over time.</p>
+            <p>The solution is two questions that measure self-efficacy, meaning how confident people feel they can do something: one about using AI at work, the other about discussing AI with clients.</p>
           </div>
         </details>
 
@@ -581,28 +605,22 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-data-baseline" data-tier="featured">
           <summary>
             <span class="case-num">03</span>
-            <h4 class="case-title">Testing my team’s data skills before teaching them</h4>
-            <span class="case-context">A 31-person learning design team wanted to move from basic AI use to working with data and AI agents, without knowing its starting point.</span>
-            <span class="case-result">The baseline showed overconfidence on core statistics, and the session series was built around it.</span>
+            <h4 class="case-title">Building a data and AI upskilling curriculum for the future of learning design</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> The learning design team needed advanced AI capabilities to shape learning in the AI era, and data and analytical skills to work in increasingly unpredictable and ambiguous situations.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> Given the size of the team and its wide range of expertise, we needed a reliable baseline to make sure the program would fill real gaps.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> We designed and delivered monthly upskilling sessions throughout 2026, and the series is ongoing.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
-              <span class="status">Delivered</span>
+              <span class="status">Ongoing</span>
               <span>McKinsey &amp; Company</span>
               <span class="num">2025–2026</span>
               <span class="tags">Capability baseline / Data literacy</span>
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Chosen by the function’s global head to lead its AI and data analytics upskilling. I designed the data-literacy part of the baseline survey and analysed the results.</p>
-            <p class="label">What I did</p>
-            <p>The survey asked people how confident they felt, then tested them. Among those who rated their confidence at 4, about 45% answered correctly on correlation versus causation and about 56% on statistical significance.</p>
-            <p>That gap decided what we taught. I designed and ran sessions on hypothesis testing and on data analysis and visualisation, working with the firm’s analytics teams. I also co-designed the session on multi-agent systems (set-ups where several AI agents split a task between them), which became the most requested in the series, and wrote an executive overview of the topic for enterprise learning.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span><b>31</b> baseline responses; sessions delivered February to June 2026, with a monthly series continuing.</span><span class="evidence">Audience is peers in the learning function, not the whole firm.</span></li>
-              <li><span>About <b>19</b> colleagues joined the hypothesis-testing session.</span><span class="evidence">Attendance, from the session record.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>I was in charge of data analytics and the baseline survey, which I administered and analyzed. I then designed and delivered three of the monthly sessions.</p>
+            <p>The survey revealed misconceptions about how well people knew certain topics, and the sessions worked to resolve them.</p>
           </div>
         </details>
 
@@ -610,9 +628,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-ai-support-evaluation" data-tier="featured">
           <summary>
             <span class="case-num">04</span>
-            <h4 class="case-title">Finding out whether an AI assistant could help people mid-task</h4>
-            <span class="case-context">A team wanted to know if an AI agent could give reliable help while people were doing their jobs, and was close to stopping the experiment.</span>
-            <span class="case-result">Semi-finalist in the firm’s innovation competition; the team acted on the findings about two years later.</span>
+            <h4 class="case-title">Designing a rigorous test to determine whether an AI assistant can support people in the flow of work</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> A cross-functional team wanted to know whether an AI assistant could provide performance support in the flow of work and overcome the shortcomings of our legacy performance support solution.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> The team had a very broad research question and no clear plan to break it down into testable hypotheses.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A research experiment with a clear strategy and measurement plan that helped us improve our agentic AI skills along the way.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
@@ -622,16 +641,10 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Thought partner on the study. I worked on the agent’s instructions and co-developed the evaluation method with the people analytics team. I didn’t build or roll out the eventual solution.</p>
-            <p class="label">What I did</p>
-            <p>I treated it as research. Before any testing, we agreed what “reliable” and “relevant” meant, then measured the agent against those definitions instead of impressions.</p>
-            <p>When the team considered quitting early, I argued for finishing, so we would have an answer either way. The framing of the problem turned out to be as useful as the result.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Semi-finalist in the firm’s internal innovation competition, 2025.</span><span class="evidence">Internal recognition.</span></li>
-              <li><span>The team acted on the recommendations about two years later.</span><span class="evidence">Implementation was theirs; my part was the framing and the analysis.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>I was a thought partner on the study. I worked on the AI assistant’s instructions and developed the research questions, hypotheses, and the evaluation method, which I then validated with the people analytics team.</p>
+            <p>Before any testing, we agreed what “reliable” and “relevant” meant.</p>
+            <p>The study itself did not result in a replacement of our performance support platform, but it set the stage for a 2026 initiative that did.</p>
           </div>
         </details>
 
@@ -639,10 +652,10 @@ section { margin-top: var(--gap-xl); }
 
       <div class="quote-set">
         <blockquote class="quote"><p>“Marco challenged us when we considered quitting the experiment early. We didn’t think the agent could work, but he coached us on new and challenging ideas…”</p></blockquote>
-        <blockquote class="quote" hidden><p>“Marco is one of the leading innovation experts in the org… I love his brain in this space.”</p></blockquote>
+        <blockquote class="quote" hidden><p>“Marco is one of the leading innovation experts in the org… I love his thinking in this space.”</p></blockquote>
       </div>
 
-      <p class="label also-label">Also in this theme</p>
+      <p class="label also-label">See also:</p>
       <ul class="further">
         <li><span class="fw-title">A client-ready deck and article on practical uses of generative AI in learning; reused in two client proposals</span><span class="fw-meta">2026</span><span class="status">Delivered</span></li>
       </ul>
@@ -650,9 +663,8 @@ section { margin-top: var(--gap-xl); }
 
     <!-- THEME 2 ════════════════════════════════════════════ -->
     <div class="theme" id="theme-design">
-      <p class="label">Theme 2</p>
       <h3 class="theme-title">Approaching problems with new design ideas</h3>
-      <p class="theme-intro">The problem is known and the old answer isn’t working. I’m not there to please people. I work out what matters in their role and build the best experience I can around it.</p>
+      <p class="theme-intro">The problem is known, but the old solution no longer fits. I find out what people need in their work and build the best experience I can around it.</p>
 
       <div class="index">
 
@@ -660,9 +672,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-value-proposition" data-tier="featured">
           <summary>
             <span class="case-num">05</span>
-            <h4 class="case-title">Helping 2,200 experts get found for what they know</h4>
-            <span class="case-context">Most people in a 2,200-strong expert network had no published summary of their expertise, so colleagues searching for help often missed them.</span>
-            <span class="case-result">After the campaign, most of the experts measured moved into the top results of internal expert search.</span>
+            <h4 class="case-title">Helping 2,200 expert consultants land their next engagement</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> Most of the 2,200 people in an expert network had no published summary of their expertise, which significantly prevented them from being staffed for engagement studies.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> The value of the people in this network had been increasingly and unfairly undermined by the perception that AI could replace them and their expertise.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A combined campaign of a microsite, instructor-led sessions, and an AI-based coach on value proposition to help people emphasize the value that they bring beyond output generation, particularly when combined with AI.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
@@ -672,48 +685,32 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Learning designer and builder of the digital assets, in a campaign led by the network’s own learning team.</p>
-            <p class="label">What I did</p>
-            <p>The goal was for everyone to have a value proposition: a short, evidence-backed statement of what they bring to a client. Existing programmes reached fewer than one in five people, and there were few places to practise writing one and have it challenged.</p>
-            <p>I recommended a combined approach to the network’s directors and built most of it. A mobile-friendly microsite with a building-blocks framework and interviews with colleagues who had rewritten theirs. An AI coach that asks questions instead of writing the answer for you. Materials for a ready-to-run team workshop.</p>
-            <p>For the coach, I ran user testing against a rubric, collected the feedback and got the sign-off needed to release it to the firm’s early-access users.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Most of the experts measured moved into the top results of internal expert search, including some who had previously been hard to find at all.</span><span class="evidence">Internal analysis of the whole campaign, which these assets made possible; not the effect of one asset alone.</span></li>
-              <li><span>About <b>106</b> workshop participants given access to the coach; reused since with other teams and audiences.</span><span class="evidence">Access granted, not unique usage.</span></li>
-              <li><span>A learning team in another group asked to use the content for its own effort.</span><span class="evidence">Request, 2025.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>I recommended a combined approach to the network’s directors and built most of it, working within a campaign led by the network’s own learning team.</p>
+            <p>Most experts who participated in the campaign moved into the top results of our internal search for experts. The AI-based coach has been used hundreds of times, and the value proposition learning materials have been repurposed several times for similar campaigns for other audiences.</p>
           </div>
         </details>
 
         <!-- CASE 06 ─────────────────────────────────────────── -->
+        <!-- Internal: course = AI Essentials (new-hire onboarding). Not shown in the portfolio. -->
         <details class="case" id="case-ai-courses-redesign" data-tier="featured">
           <summary>
             <span class="case-num">06</span>
-            <h4 class="case-title">Turning AI lectures into work on a real client case</h4>
-            <span class="case-context">Two AI courses, one taken across the firm and one for senior leaders, relied on lectures when people needed to work through problems.</span>
-            <span class="case-result">Senior participants rated their ability to reimagine a business area <b>2.8</b> before and <b>5.2</b> after, out of 7.</span>
+            <h4 class="case-title">Building consultative AI skills with immersive client case scenarios</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> As design lead, with a junior designer as my partner, I was tasked with giving new-hire consultants foundational consultative AI skills as part of their onboarding program.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> New hires had little to no knowledge of what their role in an AI transformation engagement would look like, and couldn’t see the use of the topics, which were delivered as a three-hour passive lecture. We couldn’t change the session length, remove topics, or change the program structure.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> We turned the session into a consultative role play with a fictitious client and placed the AI concepts new hires need to own as consultants inside the scenario. Faculty and participants gave great feedback.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
               <span>McKinsey &amp; Company</span>
               <span class="num">2026</span>
-              <span class="tags">Active learning / Squad leadership</span>
+              <span class="tags">Active learning / Squad leadership / Mentoring</span>
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Co-led both redesigns within the squad I lead. On the firm-wide course I set the plan, then handed design ownership to a junior colleague.</p>
-            <p class="label">What I did</p>
-            <p>I observed the firm-wide course and marked every point where learners were only listening. We rebuilt the concepts section around one client case that runs from start to finish.</p>
-            <p>For the senior programme, I co-led the redesign of an in-person workshop in Madrid and coached the same junior colleague as he built the programme’s first interactive microsite.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Senior participants’ self-rated ability rose from <b>2.8</b> to <b>5.2</b> out of 7; relevance rated <b>6.0</b>.</span><span class="evidence">Self-assessment, Madrid workshop, July 2026. Not a skills test.</span></li>
-              <li><span>On the firm-wide course, relevance rose from <b>5.91</b> to <b>6.3</b> out of 7.</span><span class="evidence">Survey before (n=47) and after (n=42), June 2026; shipped alongside other squad changes.</span></li>
-              <li><span>The microsite was showcased to the firm’s AI-for-learning community, and my colleague moved on to own a key deliverable himself.</span><span class="evidence">Internal community of practice.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>I worked through the design approach with my teammate, then acted as his mentor and manager so he could take ownership of the development. I set up calls with subject matter experts to ask questions and get feedback on the ideas we were brainstorming, and then he executed the design.</p>
           </div>
         </details>
 
@@ -721,23 +718,22 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-ownership-programme" data-tier="featured">
           <summary>
             <span class="case-num">07</span>
-            <h4 class="case-title">Redesigning a programme only one in four eligible people used</h4>
-            <span class="case-context">A development programme for newly promoted professionals reached about 23% of those eligible. People found it long and repetitive.</span>
-            <span class="case-result">New seven-week design running now; early reports of people applying it at work.</span>
+            <h4 class="case-title">Equipping newly promoted specialists with the ownership skills they need to succeed</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> The firm’s people function needed to redesign a milestone program for newly promoted non-consultant specialists, equipping them with tactical, actionable steps to succeed as individual contributors.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> The original program had very low attendance due to its excessive length, highly demanding workload, and time commitment. It was also losing relevance because it made no mention of AI or its impact on the specialist role.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A seven-week design of three two-week units and a one-week capstone, mixing live virtual sessions, coaching, and AI role-plays for difficult stakeholder conversations.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Ongoing</span>
               <span>McKinsey &amp; Company</span>
               <span class="num">2025–2026</span>
-              <span class="tags">Programme design / AI practice</span>
+              <span class="tags">Program design / AI practice</span>
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Lead designer, responsible for the structure of the programme from start to finish.</p>
-            <p class="label">What I did</p>
-            <p>The programme builds ownership, accountability and communication before people manage others. Early on, I built a small website of the draft design with surveys embedded, so stakeholders could react before anything was final.</p>
-            <p>The result is three two-week units and a one-week capstone. Each unit mixes live virtual sessions, coaching and AI role-plays for difficult stakeholder conversations. Participants also develop their own value proposition and rehearse the firm’s communication frameworks.</p>
+            <p class="label">Details</p>
+            <p>I took over as project lead after a colleague interviewed talent partners and former faculty about the program’s shortcomings and opportunities. After reviewing the findings, I designed the new program’s structure, which revolves around the concept of ownership and explores it from multiple angles.</p>
+            <p>Throughout the program, I embedded virtual sessions, faculty-led coaching, and AI-based practice activities. Each session includes key concepts tailored to the specific needs of non-consultant specialists, and practical tips to embed AI in the flow of work.</p>
             <figure class="diagram">
               <svg viewBox="0 0 560 70" role="img" aria-labelledby="d3t">
                 <title id="d3t">Seven weeks: three two-week units followed by a one-week capstone.</title>
@@ -749,13 +745,9 @@ section { margin-top: var(--gap-xl); }
                 <text x="487" y="28" font-size="11" style="fill:#fff">Capstone</text>
                 <g font-size="10" style="fill:var(--muted)"><text x="0" y="58">week 1</text><text x="525" y="58">week 7</text></g>
               </svg>
-              <figcaption>Programme structure, schematic.</figcaption>
+              <figcaption>Program structure, schematic.</figcaption>
             </figure>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>One coach reported that everyone in her groups had completed the workplace challenge: they had held the difficult conversation, or prepared and scheduled it.</span><span class="evidence">Self-reported, mid-programme. Not a measure of behaviour change.</span></li>
-              <li><span>Participants describe the content as relevant to their role, with practical takeaways.</span><span class="evidence">Mid-programme feedback. Final evaluation after the programme ends on 2 Dec 2026.</span></li>
-            </ul>
+            <p>Participants describe the content as relevant to their roles and as offering practical takeaways.</p>
           </div>
         </details>
 
@@ -766,16 +758,15 @@ section { margin-top: var(--gap-xl); }
         <blockquote class="quote" hidden><p>“I appreciate Marco’s skills in navigating ambiguity and leading with clarity.”</p></blockquote>
       </div>
 
-      <p class="label also-label">Also in this theme</p>
+      <p class="label also-label">See also:</p>
       <ul class="further">
-        <li><span class="fw-title">Restarted a stalled leadership microsite for associate partners with a visual design-and-review process</span><span class="fw-meta">2023–2024</span><span class="status">Pilot</span></li>
+        <li><span class="fw-title">Restarted a stalled leadership microsite for associate partners with a visual design-and-review process</span><span class="fw-meta">2023–2024</span><span class="status">Delivered</span></li>
       </ul>
     </div>
 
     <!-- THEME 3 ════════════════════════════════════════════ -->
     <div class="theme" id="theme-practice">
-      <p class="label">Theme 3</p>
-      <h3 class="theme-title">Enabling people to practise deliberately</h3>
+      <h3 class="theme-title">Enabling people to practice deliberately</h3>
       <p class="theme-intro">Deliberate practice means focused, repeated practice with feedback, which is how difficult skills improve. I use AI and simulation so people can rehearse the moments that matter in their job, at a scale live coaching can’t reach.</p>
 
       <div class="index">
@@ -784,9 +775,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-ai-rubrics" data-tier="featured">
           <summary>
             <span class="case-num">08</span>
-            <h4 class="case-title">Making AI feedback consistent for about 2,000 learners</h4>
-            <span class="case-context">An AI grader in a large firm-wide programme scored too generously while its written comments were too harsh, so learners got mixed messages.</span>
-            <span class="case-result">About <b>2,000</b> participants now practise against the rebuilt scoring guides.</span>
+            <h4 class="case-title">Creating a consistent learning experience for deliberate practice in an onboarding program</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> We were offering AI-based deliberate practice opportunities in an onboarding program for consultants.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> Feedback was largely inconsistent because of the way the rubrics were written: feedback was overly harsh and grades were overly lenient.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> I redesigned the rubrics around specific skills and sub-skills and tailored them to the activities learners were working on.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
@@ -796,11 +788,8 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>I redesigned the rubrics (the scoring guides the AI uses) for written uploads and spoken role-plays.</p>
-            <p class="label">What I did</p>
-            <p>I rewrote the criteria so the score and the comment point the same way.</p>
-            <p>Before launch, I re-ran 13 past submissions through the old and new rubrics side by side and walked stakeholders through every disagreement.</p>
+            <p class="label">Details</p>
+            <p>I redesigned the rubrics and tested them on earlier submissions to confirm they worked better than the originals.</p>
             <figure class="diagram">
               <svg viewBox="0 0 560 110" role="img" aria-labelledby="d1t">
                 <title id="d1t">Before: score and written feedback point in different directions. After: they align.</title>
@@ -815,14 +804,8 @@ section { margin-top: var(--gap-xl); }
                 <text x="350" y="80" font-size="12" style="fill:var(--ink)">score and feedback agree</text>
                 <line x1="0" y1="100" x2="560" y2="100" style="stroke:var(--rule)"/>
               </svg>
-              <figcaption>Schematic only. No internal interfaces shown.</figcaption>
             </figure>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>About <b>2,000</b> participants have practised against the revised rubrics.</span><span class="evidence">Participants, not completions.</span></li>
-              <li><span>Programme owners reported more coherent feedback and more retry attempts meeting the bar.</span><span class="evidence">Reported by the programme; no controlled comparison.</span></li>
-              <li><span>Another business unit aligned its own rubrics to the new standard.</span><span class="evidence">2026 review.</span></li>
-            </ul>
+            <p>Since then, more than 2,000 participants have gone through the program, and the results showed consistency and better alignment between feedback and grades.</p>
           </div>
         </details>
 
@@ -830,23 +813,21 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-voice-coach" data-tier="featured">
           <summary>
             <span class="case-num">09</span>
-            <h4 class="case-title">A voice coach for senior leaders’ hardest AI conversations</h4>
-            <span class="case-context">Senior client leaders needed private, realistic practice before high-stakes conversations about the value of AI.</span>
-            <span class="case-result"><b>90+</b> practice sessions; shortlisted for the firm’s internal learning award.</span>
+            <h4 class="case-title">Giving partners private, realistic practice for their hardest AI conversations</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> McKinsey partners needed to practice client conversations about AI grounded in the firm’s principles.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> Time constraints and the overwhelming range of possible scenarios ruled out a traditional simulation. The AI voice coach we chose instead had to ground its feedback in the firm’s consultative AI principles, rather than in traditional conversation feedback such as pace, tone of voice, and language.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A voice-based role-play coach that plays a client and gives feedback afterward, grounded in a knowledge base of the firm’s consultative AI principles.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
-              <span class="status">Pilot</span>
+              <span class="status">Delivered</span>
               <span>McKinsey &amp; Company</span>
               <span class="num">2025–2026</span>
               <span class="tags">Voice role-play / Executive learning</span>
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Designer of the AI coach and of the learning pathway around it.</p>
-            <p class="label">What I did</p>
-            <p>I built a voice-capable role-play coach that plays a sceptical client and gives feedback afterwards, alongside a short curated pathway of supporting material.</p>
-            <p>Each version went through an evaluation rubric covering accuracy of content and quality of the experience, and I iterated before wider release.</p>
+            <p class="label">Details</p>
+            <p>I designed the AI coach and the learning pathway around it. Each version was evaluated for accuracy of content and quality of the experience, and I iterated before wider release.</p>
             <figure class="diagram">
               <svg viewBox="0 0 560 80" role="img" aria-labelledby="d2t">
                 <title id="d2t">Practice loop: brief, role-play, feedback, retry.</title>
@@ -858,13 +839,8 @@ section { margin-top: var(--gap-xl); }
                   <path d="M470 46 Q470 70 300 70 Q150 70 150 50" fill="none" stroke-dasharray="3 3"/>
                 </g>
               </svg>
-              <figcaption>Schematic only. No internal interfaces shown.</figcaption>
             </figure>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span><b>90+</b> practice sessions with dozens of senior users.</span><span class="evidence">This tool only; not part of the ~1,000 total-uses figure above.</span></li>
-              <li><span>Shortlisted for the firm’s internal learning award and added to its AI enablement resources.</span><span class="evidence">Award shortlist, 2026.</span></li>
-            </ul>
+            <p>Dozens of senior users have run more than 90 practice sessions. The coach was shortlisted for the firm’s internal learning award and added to its AI enablement resources.</p>
           </div>
         </details>
 
@@ -872,9 +848,10 @@ section { margin-top: var(--gap-xl); }
         <details class="case" id="case-simulations" data-tier="featured">
           <summary>
             <span class="case-num">10</span>
-            <h4 class="case-title">Simulations that assess what people can actually do</h4>
-            <span class="case-context">Senior leaders needed to practise giving hard feedback, and other teams wanted to assess applied skill without a live assessor.</span>
-            <span class="case-result">Feedback simulation used by <b>1,000+</b> people, with difficulty tuned from pilot data.</span>
+            <h4 class="case-title">Designing simulations that let people practice and prove applied skills</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> Senior leaders needed to practice giving hard feedback, and other teams wanted to assess applied skill without a live assessor.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> The team had never assessed applied skill in a self-paced format, and subject experts disagreed at first on the assessment design.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A feedback simulation used by more than 1,000 people, a self-paced commercial skills simulation that assesses applied skill, and the first of four assessment simulations.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
@@ -884,17 +861,9 @@ section { margin-top: var(--gap-xl); }
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>Lead designer, working with senior stakeholders, subject experts and a simulation platform.</p>
-            <p class="label">What I did</p>
-            <p>For the feedback simulation, used by engagement leaders and team leaders, I designed the scenarios with senior stakeholders and used participant data from each pilot round to adjust how hard each one was.</p>
-            <p>For a commercial skills simulation, I storyboarded every interaction as a flow chart, so the subject expert could see the nuances and challenge them before anything was built.</p>
-            <p>I also started the first of four assessment simulations, which judge competence rather than teach. The subject experts disagreed at first, so I set up a shared visual design process to get them aligned.</p>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span><b>1,000+</b> users of the feedback simulation.</span><span class="evidence">Figure from my earlier CV; difficulty tuning confirmed in the 2025 review.</span></li>
-              <li><span>The commercial simulation assessed applied skill in a self-paced format, which the team hadn’t attempted before.</span><span class="evidence">2025 review.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>As lead designer, I worked with senior stakeholders, subject experts, and a simulation platform. For the feedback simulation, I designed the scenarios with senior stakeholders and used data from each pilot round to adjust difficulty.</p>
+            <p>For the commercial simulation, I storyboarded every interaction as a flow chart, so the subject expert could see and challenge the nuances before anything was built. For the assessment simulations, I set up a shared visual design process to align the subject experts.</p>
           </div>
         </details>
 
@@ -905,7 +874,7 @@ section { margin-top: var(--gap-xl); }
         <blockquote class="quote" hidden><p>“[He] meticulously storyboarded every interaction with detailed flow charts that allowed our [subject expert] to see the nuances of the simulation and make informed suggestions.”</p></blockquote>
       </div>
 
-      <p class="label also-label">Also in this theme</p>
+      <p class="label also-label">See also:</p>
       <ul class="further">
         <li><span class="fw-title">AI-building workshops, workbooks and voice role-plays for senior technologists; pilot satisfaction 5.5&#8239;/&#8239;7 (not a skills measure)</span><span class="fw-meta">2026</span><span class="status">Pilot</span></li>
         <li><span class="fw-title">User experience and learning design for a mandatory AI certification, for a potential audience of up to ~35,000</span><span class="fw-meta">2026</span><span class="status">In development</span></li>
@@ -914,40 +883,31 @@ section { margin-top: var(--gap-xl); }
 
     <!-- THEME 4 ════════════════════════════════════════════ -->
     <div class="theme" id="theme-capability">
-      <p class="label">Theme 4</p>
       <h3 class="theme-title">Building capability across the firm</h3>
       <p class="theme-intro">Work that raises the level of the people around me: colleagues in my own function, consultants across regions and large faculty audiences.</p>
 
       <div class="index">
 
         <!-- CASE 11 ─────────────────────────────────────────── -->
-        <details class="case" id="case-ai-adoption" data-tier="featured">
+        <!-- Internal: program = Proposal Excellence (PEX); mentee = Aruna. Not shown in the portfolio. -->
+        <details class="case" id="case-proposal-portfolio" data-tier="featured">
           <summary>
             <span class="case-num">11</span>
-            <h4 class="case-title">Helping a 30-person design team make AI part of the working week</h4>
-            <span class="case-context">A learning design team wanted to move from curiosity about AI to using it every week.</span>
-            <span class="case-result">Weekly AI use rose from <b>60%</b> to <b>95%</b> in nine months, in an effort I co-led.</span>
+            <h4 class="case-title">Scaling up the firm’s capability to write winning proposals</h4>
+            <span class="case-situation"><span class="scr-k">Situation:</span> The firm’s proposal program needed a digital portfolio of courses on proposal writing, strategy, and presentation, for audiences from business analyst to senior partner.</span>
+            <span class="case-complication"><span class="scr-k">Complication:</span> Facilitators needed to prioritize other work and couldn’t meet the demand for every session.</span>
+            <span class="case-resolution"><span class="scr-k">Resolution:</span> A six-module self-paced digital portfolio that people are still taking today.</span>
             <span class="case-toggle">Read case study</span>
             <span class="case-meta">
               <span class="status">Delivered</span>
               <span>McKinsey &amp; Company</span>
-              <span class="num">2024–2026</span>
-              <span class="tags">AI adoption / Facilitation</span>
+              <span class="num">2025</span>
+              <span class="tags">Digital learning / Mentoring</span>
             </span>
           </summary>
           <div class="case-body">
-            <p class="label">My role</p>
-            <p>One of the colleagues leading the team’s AI adoption.</p>
-            <p class="label">What I did</p>
-            <ul>
-              <li>Co-created a set of short interviews in which colleagues shared their AI breakthroughs and habits, which became a shared knowledge base.</li>
-              <li>Facilitated AI office hours and, later, advanced workshops.</li>
-              <li>Co-created peer practice sessions.</li>
-            </ul>
-            <p class="label">Results</p>
-            <ul class="results">
-              <li><span>Weekly AI tool use rose from <b>60%</b> to <b>95%</b>.</span><span class="evidence">Team survey over nine months of 2024; team-wide and co-led.</span></li>
-            </ul>
+            <p class="label">Details</p>
+            <p>I designed and developed several of the six courses, interviewing subject matter experts and approving the final content. I also mentored a junior colleague through the development.</p>
           </div>
         </details>
 
@@ -958,12 +918,12 @@ section { margin-top: var(--gap-xl); }
         <blockquote class="quote" hidden><p>“No matter how many questions I asked, Marco always took the time to explain things thoroughly.”</p></blockquote>
       </div>
 
-      <p class="label also-label">Also in this theme</p>
+      <p class="label also-label">See also:</p>
       <ul class="further">
+        <li><span class="fw-title">Helping a 30-person learning design team make AI part of the working week (co-led)</span><span class="fw-meta">2024–2026</span><span class="status">Delivered</span></li>
         <li><span class="fw-title">Website for a curated AI learning week for consultants in North America, built to regenerate from a data table</span><span class="fw-meta">2026</span><span class="status">In development</span></li>
         <li><span class="fw-title">Lead faculty for a firm-wide leadership webinar series, 6,000+ participants; AI Ambassador and inclusion facilitator</span><span class="fw-meta">2024–2026</span><span class="status">Ongoing</span></li>
         <li><span class="fw-title">Co-lead of the learning function’s impact-measurement community of practice</span><span class="fw-meta">2025–2026</span><span class="status">Ongoing</span></li>
-        <li><span class="fw-title">Courses in a six-module digital portfolio on proposal writing, for audiences from business analyst to senior partner</span><span class="fw-meta">2025</span><span class="status">Delivered</span></li>
         <li><span class="fw-title">15+ microlearning, scenario and simulation solutions; one adaptive design was adopted for a client-facing version</span><span class="fw-meta">2022–2025</span><span class="status">Delivered</span></li>
       </ul>
     </div>
@@ -972,7 +932,7 @@ section { margin-top: var(--gap-xl); }
 </section>
 
 <!-- ================================================= 5. EARLIER CAREER -->
-<section aria-labelledby="earlier-title">
+<section id="earlier" aria-labelledby="earlier-title">
   <div class="wrap">
     <h2 class="section-title" id="earlier-title">Before McKinsey <span class="num">2008 – 2022</span></h2>
 
@@ -1058,7 +1018,24 @@ section { margin-top: var(--gap-xl); }
   </div>
 </section>
 
-<!-- ================================================= 6. ARCHIVE -->
+<!-- ================================================= 6. CREDENTIALS -->
+<section id="credentials" aria-labelledby="creds-title">
+  <div class="wrap">
+    <h2 class="section-title" id="creds-title">Education, talks and recognition</h2>
+    <ul class="creds">
+      <li><span></span><span class="yr">2026</span><span><strong>Speaker, Online Educa Berlin (main programme)</strong><span class="d">“Making the invisible visible: capturing evidence of learning in AI conversations”. Scheduled for December 2026.</span></span></li>
+      <li><span></span><span class="yr">2026</span><span><strong>Learning Lighthouse Award, shortlist</strong><span class="d">McKinsey internal learning award, for the AI voice coach (case 09)</span></span></li>
+      <li><span></span><span class="yr">2026</span><span><strong>Recognised as one of the firm’s AI builders</strong><span class="d">McKinsey internal campaign; about 1,000 uses of the AI tools I published (total uses, not unique users)</span></span></li>
+      <li><span></span><span class="yr">2025</span><span><strong>AI for Learning Design Bootcamp</strong><span class="d">Dr Philippa Hardman</span></span></li>
+      <li><span></span><span class="yr">2025</span><span><strong>Innovation Olympics, semi-finalist</strong><span class="d">McKinsey internal innovation competition, for the AI assistant evaluation (case 04)</span></span></li>
+      <li><span></span><span class="yr">2024</span><span><strong>Doctor of Education (Ed.D.), Walden University</strong><span class="d">Dissertation: learning designers’ views on the barriers to using analytics in corporate online learning</span></span></li>
+      <li><span></span><span class="yr">2021</span><span><strong>Brandon Hall Gold Award, Best Sales Training Program</strong><span class="d">Johnson Controls</span></span></li>
+      <li><span></span><span class="yr">2019</span><span><strong>INTED conference paper</strong><span class="d">“Blended learning: serving adults at times of reduced funding”</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================= 7. ARCHIVE (below credentials) -->
 <section aria-labelledby="archive-title">
   <div class="wrap">
     <h2 class="section-title" id="archive-title">Archive <span class="num">2014 – 2020</span></h2>
@@ -1106,23 +1083,6 @@ section { margin-top: var(--gap-xl); }
   </div>
 </section>
 
-<!-- ================================================= 7. CREDENTIALS -->
-<section aria-labelledby="creds-title">
-  <div class="wrap">
-    <h2 class="section-title" id="creds-title">Education, talks and recognition</h2>
-    <ul class="creds">
-      <li><span></span><span class="yr">2026</span><span><strong>Speaker, Online Educa Berlin (main programme)</strong><span class="d">“Making the invisible visible: capturing evidence of learning in AI conversations”. Scheduled for December 2026.</span></span></li>
-      <li><span></span><span class="yr">2026</span><span><strong>Learning Lighthouse Award, shortlist</strong><span class="d">McKinsey internal learning award, for the AI voice coach (case 09)</span></span></li>
-      <li><span></span><span class="yr">2026</span><span><strong>Recognised as one of the firm’s AI builders</strong><span class="d">McKinsey internal campaign; about 1,000 uses of the AI tools I published (total uses, not unique users)</span></span></li>
-      <li><span></span><span class="yr">2025</span><span><strong>AI for Learning Design Bootcamp</strong><span class="d">Dr Philippa Hardman</span></span></li>
-      <li><span></span><span class="yr">2025</span><span><strong>Innovation Olympics, semi-finalist</strong><span class="d">McKinsey internal innovation competition, for the AI assistant evaluation (case 04)</span></span></li>
-      <li><span></span><span class="yr">2024</span><span><strong>Doctor of Education (Ed.D.), Walden University</strong><span class="d">Dissertation: learning designers’ views on the barriers to using analytics in corporate online learning</span></span></li>
-      <li><span></span><span class="yr">2021</span><span><strong>Brandon Hall Gold Award, Best Sales Training Program</strong><span class="d">Johnson Controls</span></span></li>
-      <li><span></span><span class="yr">2019</span><span><strong>INTED conference paper</strong><span class="d">“Blended learning: serving adults at times of reduced funding”</span></span></li>
-    </ul>
-  </div>
-</section>
-
 </main>
 
 <!-- ================================================= 8. FOOTER -->
@@ -1165,12 +1125,23 @@ section { margin-top: var(--gap-xl); }
     qs.forEach(function (q, i) { q.hidden = (i !== pick); });
   });
   // Open a case study when the URL points at it, e.g. index.html#case-ai-rubrics
-  function openFromHash() {
-    var el = location.hash && document.getElementById(location.hash.slice(1));
-    if (el && el.tagName === 'DETAILS') el.open = true;
+  // Also used by the highlight links. After opening, re-align the case under the
+  // sticky index (CSS scroll-padding), since opening can shift the layout.
+  function openFromHash(initial) {
+    var el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      requestAnimationFrame(function () { el.scrollIntoView({ block: 'start', behavior: initial === true ? 'instant' : 'auto' }); });
+    }
   }
-  window.addEventListener('hashchange', openFromHash);
-  openFromHash();
+  window.addEventListener('hashchange', function () { openFromHash(); });
+  // Clicking a link to the case already in the address bar fires no hashchange.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#case-"]');
+    if (a && a.hash === location.hash) openFromHash();
+  });
+  openFromHash(true);
+  window.addEventListener('load', function () { if (location.hash) openFromHash(true); });
 </script>
 </body>
 </html>
